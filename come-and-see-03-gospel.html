@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Different Gospel | Come and See</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f2e7; --paper: #efe7d4; --ink: #1f1811; --ink-soft: #4a3f33;
+      --ink-mute: #776859; --gold: #8b6b2a; --gold-soft: #b08d47;
+      --teal: #2c5953; --teal-soft: #447a73; --hairline: #d9cbb0; --hairline-soft: #e6dcc4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'Newsreader', Georgia, serif; font-size: 19px; line-height: 1.7;
+      font-weight: 380; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(139, 107, 42, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(44, 89, 83, 0.02) 0%, transparent 50%);
+    }
+    main, nav, footer { position: relative; z-index: 1; }
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .eyebrow {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold);
+    }
+    .reference {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 24px 0; border-bottom: 1px solid var(--hairline-soft); background: var(--cream); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 20px; font-weight: 400; font-style: italic; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 640px) { .nav-links { gap: 18px; font-size: 13px; } }
+
+    .hero { padding: 100px 0 80px; border-bottom: 1px solid var(--hairline-soft); }
+    .hero .section-marker {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 40px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 104px); line-height: 0.95;
+      letter-spacing: -0.035em; margin-bottom: 36px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    .hero-sub {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 24px; line-height: 1.45; font-style: italic; color: var(--ink-soft); max-width: 600px;
+    }
+
+    section.content { padding: 80px 0; }
+    section.content + section.content { border-top: 1px solid var(--hairline-soft); }
+    section.content.paper { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+    section.content h2 {
+      font-size: clamp(30px, 4.2vw, 40px); line-height: 1.15; margin-bottom: 32px; letter-spacing: -0.025em;
+    }
+    section.content h2 em { font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80; }
+    section.content .eyebrow { display: block; margin-bottom: 18px; }
+    section.content p { font-size: 19px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 22px; }
+    section.content p:last-child { margin-bottom: 0; }
+    section.content p em { color: var(--ink); font-style: italic; }
+    section.content p strong { color: var(--ink); font-weight: 600; }
+
+    .receipt { background: var(--cream); border: 1px solid var(--hairline); padding: 36px 34px; margin: 32px 0; }
+    .receipt .source {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px;
+    }
+    .receipt blockquote {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 20px; line-height: 1.55; font-style: italic; color: var(--ink); margin-bottom: 14px;
+    }
+    .receipt cite {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); font-style: normal;
+    }
+
+    .scripture-feature {
+      text-align: center; margin: 48px 0; padding: 40px 0;
+      border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+    }
+    .scripture-feature p {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: clamp(22px, 3vw, 28px); line-height: 1.45; font-style: italic;
+      color: var(--ink); max-width: 680px; margin: 0 auto 20px; text-align: center;
+    }
+    .scripture-feature .reference { display: block; text-align: center; }
+
+    .section-nav { padding: 60px 0 80px; border-top: 1px solid var(--hairline-soft); }
+    .section-nav-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .section-nav a {
+      text-decoration: none; color: inherit; padding: 24px 28px; border: 1px solid var(--hairline);
+      background: var(--cream); transition: border-color 0.25s ease, background 0.25s ease;
+      flex: 1; min-width: 260px;
+    }
+    .section-nav a:hover { border-color: var(--gold); background: var(--paper); }
+    .section-nav .direction {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 10px;
+    }
+    .section-nav h3 { font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; }
+    .section-nav h3 em { font-style: italic; color: var(--gold); }
+
+    footer { padding: 56px 0 48px; text-align: center; border-top: 1px solid var(--hairline-soft); }
+    .footer-mark {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 22px; font-style: italic; color: var(--ink); margin-bottom: 16px;
+    }
+    .footer-text {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); line-height: 1.7;
+    }
+
+    ::selection { background: var(--gold); color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">Come and See</a>
+        <div class="nav-links">
+          <a href="index.html#differences">Differences</a>
+          <a href="index.html#stories">Stories</a>
+          <a href="index.html#resources">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <span class="section-marker">03 / Six Differences</span>
+        <h1>A Different <em>Gospel.</em></h1>
+        <p class="hero-sub">Every missionary can quote 2 Nephi 25:23 from memory. It is the grace verse, the proof that the Church believes in grace too. But the three words at the end of that verse do more work than most members realize, and they are why the gospel preached by Paul is not the gospel preached in the temple recommend interview.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">What the Church teaches</span>
+        <h2>Salvation and exaltation are not the same thing.</h2>
+        <p>Here is the structure, as you have been taught it. <em>Salvation</em> in LDS doctrine is the resurrection. It is the free gift that the Atonement secures for almost every human being who has ever lived. Even those who end up in the telestial kingdom are, in this sense, saved. The sons of perdition are the tiny exception.</p>
+        <p>But salvation is not the prize. The prize is <em>exaltation</em>. To be exalted is to inherit the celestial kingdom, to dwell with Heavenly Father, to be married for time and all eternity, to continue in the covenant, to become like Him. And exaltation is not a free gift. It is conditional. It requires faith, repentance, baptism, confirmation, priesthood ordination for men, the endowment, the sealing, and continuing worthiness, confirmed every two years by interview, so that a current temple recommend is always in your wallet.</p>
+        <p>You know the questions. Do you have a testimony of the Restoration? Do you sustain the President as prophet, seer, and revelator? Do you live the law of chastity? Do you keep the Word of Wisdom? Do you pay a full tithe? Do you keep the covenants you have made? The questions are pastoral in intention, but they function as a gate. Without the recommend, there is no temple. Without the temple, there is no exaltation.</p>
+        <p>This is what the missionaries mean when they say the Church believes in grace. They do believe in it. They believe that the Atonement makes exaltation possible. But they also believe that exaltation is something you reach, with the Savior's help, <em>after all you can do</em>.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The receipts</span>
+        <h2>The three words at the end of the grace verse.</h2>
+
+        <div class="receipt">
+          <p class="source">2 Nephi 25:23</p>
+          <blockquote>"For we labor diligently to write, to persuade our children, and also our brethren, to believe in Christ, and to be reconciled to God; for we know that it is by grace that we are saved, after all we can do."</blockquote>
+          <cite>The Book of Mormon, 2 Nephi 25:23.</cite>
+        </div>
+
+        <p>Read the whole verse, not just the first half. The half every missionary quotes stops at "saved." The half that completes the sentence, the half that changes its meaning, keeps going. <em>After all we can do.</em></p>
+        <p>The Third Article of Faith, written by Joseph Smith and memorized by every Primary child, makes the structure explicit.</p>
+
+        <div class="receipt">
+          <p class="source">The Third Article of Faith</p>
+          <blockquote>"We believe that through the Atonement of Christ, all mankind may be saved, by obedience to the laws and ordinances of the Gospel."</blockquote>
+          <cite>Joseph Smith, Articles of Faith, 1842.</cite>
+        </div>
+
+        <p>Note what is being said. Salvation comes through the Atonement of Christ, which is a work of grace. But it comes <em>by</em> obedience to the laws and ordinances. The instrument, the means by which the Atonement reaches the soul, is obedience to a list.</p>
+
+        <div class="receipt">
+          <p class="source">Gospel Principles, Chapter 47</p>
+          <blockquote>"To be exalted we must have faith in Jesus Christ and endure in this faith to the end of our lives. We must repent of our sins. We must be baptized and confirmed members of the Church of Jesus Christ of Latter-day Saints. We must receive the Melchizedek Priesthood and honor our callings in the priesthood [men only]. We must receive the temple endowment and be married for time and all eternity."</blockquote>
+          <cite>Gospel Principles (2009), Ch. 47: "Exaltation."</cite>
+        </div>
+
+        <p>This is the list. Not plus grace. These <em>are</em> what grace is for. Grace makes the list achievable. But the list must be achieved.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">The Bible</span>
+        <h2>The gospel Paul preached does not have a list.</h2>
+        <p>When Paul wrote to the Galatians, he was writing to a young church that had been visited by teachers who were adding requirements. The requirements were modest, by LDS standards. Circumcision. Sabbath observance. Dietary laws. They were not asking anyone to do anything that the patriarchs and prophets of the Old Testament had not done. Paul's response was not measured. It was white-hot.</p>
+
+        <div class="scripture-feature">
+          <p>"I am astonished that you are so quickly deserting him who called you in the grace of Christ and are turning to a different gospel, not that there is another one, but there are some who trouble you and want to distort the gospel of Christ."</p>
+          <span class="reference">Galatians 1:6-7</span>
+        </div>
+
+        <p>Paul then says something that should stop any reader cold, a sentence so strong that he repeats it in case anyone missed it.</p>
+
+        <div class="scripture-feature">
+          <p>"But even if we or an angel from heaven should preach to you a gospel contrary to the one we preached to you, let him be accursed. As we have said before, so now I say again: If anyone is preaching to you a gospel contrary to the one you received, let him be accursed."</p>
+          <span class="reference">Galatians 1:8-9</span>
+        </div>
+
+        <p>What was this gospel Paul had preached? The one that, if contradicted, brings an angel itself under a curse? He states it plainly, more than once, in more than one letter.</p>
+
+        <div class="scripture-feature">
+          <p>"For by grace you have been saved through faith. And this is not your own doing; it is the gift of God, not a result of works, so that no one may boast."</p>
+          <span class="reference">Ephesians 2:8-9</span>
+        </div>
+
+        <p>Notice that Paul anticipates the objection. He knows someone will want to say <em>yes, by grace, but also, after all we can do</em>. He forecloses it. Not a result of works. Not so that anyone may boast. The gift is given to the one who has no list to show, who brings nothing but faith in the one who was given.</p>
+
+        <div class="scripture-feature">
+          <p>"Now to the one who works, his wages are not counted as a gift but as his due. And to the one who does not work but believes in him who justifies the ungodly, his faith is counted as righteousness."</p>
+          <span class="reference">Romans 4:4-5</span>
+        </div>
+
+        <p>When the Philippian jailer asked Paul and Silas what he must do to be saved, they did not give him a list. They did not hand him a pamphlet. They did not schedule an interview. They said, <em>Believe in the Lord Jesus, and you will be saved</em> (Acts 16:31). That was the answer. That is still the answer.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The difference</span>
+        <h2>After all we can do is the phrase that changes the gospel.</h2>
+        <p>If the gospel is what Paul said it was, <em>by grace, through faith, not of works, lest anyone boast</em>, then the three words at the end of 2 Nephi 25:23 are not a minor qualifier. They are a different gospel. They place the weight of salvation on you. They tell you that grace is the backup, not the ground. They give you the ordinances, the garments, the sealing, the recommend, the worthiness interview, the tithing settlement, the Word of Wisdom, and the continuing sustaining vote, and then they say that grace will make up whatever you cannot finish. That is not the gospel Paul preached. That is the opposite of the gospel Paul preached.</p>
+        <p>This is why the distinction between salvation and exaltation in LDS teaching is not a subtle clarification. It is the hinge. In Paul's gospel there is no such distinction. To be saved is to be reconciled to God, to be justified by faith, to be adopted as a child, to inherit with Christ. There is no higher tier. There is no further gate. There is one gospel, and its fruit is one hope.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">A word to the one reading</span>
+        <h2>You have been carrying a weight you were not asked to carry.</h2>
+        <p>Every member who has ever stood in a temple recommend interview has felt it, even if no one says it out loud. The question is not only <em>am I worthy today</em>. The question is <em>will I be worthy enough, at the end, to be exalted</em>. It is the question that lives under the surface of every fast and testimony meeting, every ministering visit, every late-night prayer after the children are asleep. It is the weight that the Plan puts on you, and it is a weight that Heavenly Father never asked you to carry.</p>
+        <p>The gospel of Jesus, in the words of Jesus Himself, is an invitation to put the weight down. <em>Come to me, all who labor and are heavy laden, and I will give you rest.</em> Not a list. A person. Not worthiness. Rest.</p>
+        <p>If you read the Gospel of John from beginning to end, and nothing else, you will not find the three degrees of glory. You will not find the endowment. You will not find the temple recommend. You will find the Savior saying, again and again, that whoever believes in Him has eternal life. Not may have. <em>Has</em>. Present tense. Finished. Given.</p>
+        <p>Come and see.</p>
+      </div>
+    </section>
+
+    <section class="section-nav">
+      <div class="container-wide">
+        <div class="section-nav-inner">
+          <a href="come-and-see-02-god.html">
+            <div class="direction">← Previous</div>
+            <h3>02 / A Different <em>God</em></h3>
+          </a>
+          <a href="come-and-see-04-scripture.html">
+            <div class="direction">Next →</div>
+            <h3>04 / A Different <em>Scripture</em></h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-mark">Come and See</p>
+      <p class="footer-text">
+        A pastoral resource from The Chalet Retreat Ministries<br>
+        Roan Mountain, Tennessee &nbsp;·&nbsp; hello@thechaletretreat.org
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

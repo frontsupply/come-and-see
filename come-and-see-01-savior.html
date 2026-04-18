@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Different Savior | Come and See</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f2e7; --paper: #efe7d4; --ink: #1f1811; --ink-soft: #4a3f33;
+      --ink-mute: #776859; --gold: #8b6b2a; --gold-soft: #b08d47;
+      --teal: #2c5953; --teal-soft: #447a73; --hairline: #d9cbb0; --hairline-soft: #e6dcc4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'Newsreader', Georgia, serif; font-size: 19px; line-height: 1.7;
+      font-weight: 380; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(139, 107, 42, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(44, 89, 83, 0.02) 0%, transparent 50%);
+    }
+    main, nav, footer { position: relative; z-index: 1; }
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .eyebrow {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold);
+    }
+    .reference {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+    nav {
+      padding: 24px 0; border-bottom: 1px solid var(--hairline-soft); background: var(--cream);
+    }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 20px; font-weight: 400; font-style: italic; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 640px) { .nav-links { gap: 18px; font-size: 13px; } }
+
+    .hero { padding: 100px 0 80px; border-bottom: 1px solid var(--hairline-soft); }
+    .hero .section-marker {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 40px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 104px); line-height: 0.95;
+      letter-spacing: -0.035em; margin-bottom: 36px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--gold);
+      font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    .hero-sub {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 24px; line-height: 1.45; font-style: italic; color: var(--ink-soft);
+      max-width: 600px;
+    }
+
+    section.content { padding: 80px 0; }
+    section.content + section.content { border-top: 1px solid var(--hairline-soft); }
+    section.content.paper { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+    section.content h2 {
+      font-size: clamp(30px, 4.2vw, 40px); line-height: 1.15; margin-bottom: 32px;
+      letter-spacing: -0.025em;
+    }
+    section.content h2 em {
+      font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    section.content .eyebrow { display: block; margin-bottom: 18px; }
+    section.content p { font-size: 19px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 22px; }
+    section.content p:last-child { margin-bottom: 0; }
+    section.content p em { color: var(--ink); font-style: italic; }
+    section.content p strong { color: var(--ink); font-weight: 600; }
+
+    .receipt {
+      background: var(--cream); border: 1px solid var(--hairline);
+      padding: 36px 34px; margin: 32px 0;
+    }
+    .receipt .source {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px;
+    }
+    .receipt blockquote {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 20px; line-height: 1.55; font-style: italic; color: var(--ink);
+      margin-bottom: 14px;
+    }
+    .receipt cite {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); font-style: normal;
+    }
+
+    .scripture-feature {
+      text-align: center; margin: 48px 0; padding: 40px 0;
+      border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+    }
+    .scripture-feature p {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: clamp(22px, 3vw, 28px); line-height: 1.45; font-style: italic;
+      color: var(--ink); max-width: 680px; margin: 0 auto 20px; text-align: center;
+    }
+    .scripture-feature .reference { display: block; text-align: center; }
+
+    .section-nav { padding: 60px 0 80px; border-top: 1px solid var(--hairline-soft); }
+    .section-nav-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .section-nav a {
+      text-decoration: none; color: inherit; padding: 24px 28px; border: 1px solid var(--hairline);
+      background: var(--cream); transition: border-color 0.25s ease, background 0.25s ease;
+      flex: 1; min-width: 260px;
+    }
+    .section-nav a:hover { border-color: var(--gold); background: var(--paper); }
+    .section-nav .direction {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 10px;
+    }
+    .section-nav h3 {
+      font-size: 22px; line-height: 1.2; letter-spacing: -0.02em;
+    }
+    .section-nav h3 em { font-style: italic; color: var(--gold); }
+
+    footer { padding: 56px 0 48px; text-align: center; border-top: 1px solid var(--hairline-soft); }
+    .footer-mark {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 22px; font-style: italic; color: var(--ink); margin-bottom: 16px;
+    }
+    .footer-text {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); line-height: 1.7;
+    }
+
+    ::selection { background: var(--gold); color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">Come and See</a>
+        <div class="nav-links">
+          <a href="index.html#differences">Differences</a>
+          <a href="index.html#stories">Stories</a>
+          <a href="index.html#resources">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <span class="section-marker">01 / Six Differences</span>
+        <h1>A Different <em>Savior.</em></h1>
+        <p class="hero-sub">Every member knows the Savior was the firstborn spirit son of Heavenly Father, that we are all His spirit brothers and sisters, and that Lucifer was His spirit brother too. This is not a distortion of LDS teaching. It is taught plainly in <em>Gospel Principles</em>. And it is not the Jesus of the New Testament.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">What the Church teaches</span>
+        <h2>The Savior you were taught about began as a spirit child.</h2>
+        <p>The story is familiar. Before the world was formed, every human being existed as a spirit child of Heavenly Father and a Heavenly Mother. In the Grand Council, our Father in Heaven presented the Plan of Salvation and asked who would go down to execute it. Two of His spirit sons stepped forward. The firstborn, Jehovah, offered Himself in humility, giving the Father the glory. The other, Lucifer, offered himself in pride, demanding honor. The Father chose Jehovah, and Lucifer rebelled and fell.</p>
+        <p>Jehovah later came to earth as Jesus of Nazareth, took on a body, worked out the Atonement, and returned to the Father. Every person who has ever lived is a spirit child of Heavenly Father. That is why, in the language of the Plan, Jesus is our elder brother, and why, if we are asking the question honestly, Lucifer is His brother too.</p>
+        <p>This is the correlated teaching. It is in the missionary discussions. It is in Gospel Essentials class. It is the shape of the Plan you have drawn on a whiteboard a dozen times, with the circles and the arrows and the three degrees of glory.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The receipts</span>
+        <h2>Straight from the Church's own manual.</h2>
+        <p>We are not pulling from hostile sources. These quotations come from <em>Gospel Principles</em>, the official manual used by Gospel Essentials classes, by missionaries teaching investigators, and by new members learning the basics of the restored gospel.</p>
+
+        <div class="receipt">
+          <p class="source">Gospel Principles, Chapter 3</p>
+          <blockquote>"Jesus Christ was the firstborn spirit child of our Heavenly Father. With Heavenly Father's help, Jesus created the earth and everything on it."</blockquote>
+          <cite>Gospel Principles (2009), Ch. 3: "Jesus Christ, Our Chosen Leader and Savior."</cite>
+        </div>
+
+        <div class="receipt">
+          <p class="source">Gospel Principles, Chapter 3</p>
+          <blockquote>"Satan, who is called Lucifer, also came, saying, 'Behold, here am I, send me, I will be thy son, and I will redeem all mankind… wherefore give me thine honor.' Lucifer, 'a son of the morning,' was one of the spirit sons of our Heavenly Father."</blockquote>
+          <cite>Gospel Principles (2009), Ch. 3, citing Moses 4:1 and Isaiah 14:12.</cite>
+        </div>
+
+        <p>Two spirit sons of the same Father are brothers. The Church does not usually phrase it that way in a correlated manual, but the logic is inescapable, and in 2007 a church spokesman confirmed to <em>The Washington Post</em> that Jesus and Satan were indeed spirit brothers, "but that's where the similarity ends." Later that same year, President Hinckley, asked directly on national television whether Mormons believe Jesus and Satan were brothers, answered that "in a sense" they were.</p>
+        <p>None of this is fabricated by critics. It is what the correlated material has always taught, and what every returned missionary has at some point been trained to defend.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">The Bible</span>
+        <h2>The Jesus of the New Testament has no spirit siblings.</h2>
+        <p>When John sat down to write the first words of his Gospel, he did not describe a spirit child. He described the one and only Son of the one true God. The word he used, <em>monogenēs</em>, is a word that refuses to be filed next to any other name. It means <em>unique</em>. One of a kind. Not one of many.</p>
+
+        <div class="scripture-feature">
+          <p>"For God so loved the world, that he gave his one and only Son, that whoever believes in him should not perish but have eternal life."</p>
+          <span class="reference">John 3:16</span>
+        </div>
+
+        <p>The writer of Hebrews makes the point even more sharply. Jesus is not gathered in among the angels or the spirit hosts. He stands above them. He was never one of them to begin with.</p>
+
+        <div class="scripture-feature">
+          <p>"For to which of the angels did God ever say, 'You are my Son; today I have begotten you'? Or again, 'I will be to him a father, and he shall be to me a son'?"</p>
+          <span class="reference">Hebrews 1:5</span>
+        </div>
+
+        <p>And the relationship between Jesus and the adversary is nowhere described as brotherhood. It is described as war. Jesus came, in John's words, <em>to destroy the works of the devil</em> (1 John 3:8). He does not destroy the works of His brother. He destroys the works of His enemy.</p>
+        <p>There is no Grand Council in the Bible. There is no pre-mortal negotiation between two spirit sons. There is no billions-of-spirit-children cosmology. What there is, from Genesis to Revelation, is one God, bringing forth His one unique Son to redeem a fallen world that came into being through Him, not alongside Him.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The difference</span>
+        <h2>This is what Paul was warning about.</h2>
+        <p>When Paul wrote to the Corinthians about <em>another Jesus</em>, he was not writing about a distant pagan pantheon. He was writing about a version of Jesus preached inside the church, by people who sounded sincere, used the right vocabulary, and were very convincing. His concern was not that they were obviously wrong. His concern was that they were not obviously wrong.</p>
+        <p>The Savior who was the firstborn among countless spirit children, the elder brother of every human being including His adversary, volunteering in a pre-mortal council for a job He might not have gotten, is not the Jesus of the Gospels. The names match. The persons do not.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">A word to the one reading</span>
+        <h2>We know what this costs to consider.</h2>
+        <p>You have sung "I Am a Child of God" since you were in Primary. The idea that Jesus is your elder brother is not a doctrine stored somewhere on a shelf. It is built into the language of your prayers, the shape of the Plan, and the way you have understood your own relationship to the divine for your entire life.</p>
+        <p>We are not asking you to throw that away today. We are not asking you to tell anyone anything. We are asking you to open the Gospel of John and read the first chapter slowly, without any commentary, without the correlated manual, without even this page open beside it. Ask the Savior who He says He is, in His own words. Let Him answer.</p>
+        <p>That's all. Come and see.</p>
+      </div>
+    </section>
+
+    <section class="section-nav">
+      <div class="container-wide">
+        <div class="section-nav-inner">
+          <a href="index.html">
+            <div class="direction">← Back</div>
+            <h3>To the <em>landing</em></h3>
+          </a>
+          <a href="come-and-see-02-god.html">
+            <div class="direction">Next →</div>
+            <h3>02 / A Different <em>God</em></h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-mark">Come and See</p>
+      <p class="footer-text">
+        A pastoral resource from The Chalet Retreat Ministries<br>
+        Roan Mountain, Tennessee &nbsp;·&nbsp; hello@thechaletretreat.org
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

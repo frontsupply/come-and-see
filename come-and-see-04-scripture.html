@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Different Scripture | Come and See</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f2e7; --paper: #efe7d4; --ink: #1f1811; --ink-soft: #4a3f33;
+      --ink-mute: #776859; --gold: #8b6b2a; --gold-soft: #b08d47;
+      --teal: #2c5953; --teal-soft: #447a73; --hairline: #d9cbb0; --hairline-soft: #e6dcc4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'Newsreader', Georgia, serif; font-size: 19px; line-height: 1.7;
+      font-weight: 380; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(139, 107, 42, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(44, 89, 83, 0.02) 0%, transparent 50%);
+    }
+    main, nav, footer { position: relative; z-index: 1; }
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .eyebrow {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold);
+    }
+    .reference {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 24px 0; border-bottom: 1px solid var(--hairline-soft); background: var(--cream); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 20px; font-weight: 400; font-style: italic; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 640px) { .nav-links { gap: 18px; font-size: 13px; } }
+
+    .hero { padding: 100px 0 80px; border-bottom: 1px solid var(--hairline-soft); }
+    .hero .section-marker {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 40px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 104px); line-height: 0.95;
+      letter-spacing: -0.035em; margin-bottom: 36px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    .hero-sub {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 24px; line-height: 1.45; font-style: italic; color: var(--ink-soft); max-width: 600px;
+    }
+
+    section.content { padding: 80px 0; }
+    section.content + section.content { border-top: 1px solid var(--hairline-soft); }
+    section.content.paper { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+    section.content h2 {
+      font-size: clamp(30px, 4.2vw, 40px); line-height: 1.15; margin-bottom: 32px; letter-spacing: -0.025em;
+    }
+    section.content h2 em { font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80; }
+    section.content .eyebrow { display: block; margin-bottom: 18px; }
+    section.content p { font-size: 19px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 22px; }
+    section.content p:last-child { margin-bottom: 0; }
+    section.content p em { color: var(--ink); font-style: italic; }
+    section.content p strong { color: var(--ink); font-weight: 600; }
+
+    .receipt { background: var(--cream); border: 1px solid var(--hairline); padding: 36px 34px; margin: 32px 0; }
+    .receipt .source {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px;
+    }
+    .receipt blockquote {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 20px; line-height: 1.55; font-style: italic; color: var(--ink); margin-bottom: 14px;
+    }
+    .receipt cite {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); font-style: normal;
+    }
+
+    .scripture-feature {
+      text-align: center; margin: 48px 0; padding: 40px 0;
+      border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+    }
+    .scripture-feature p {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: clamp(22px, 3vw, 28px); line-height: 1.45; font-style: italic;
+      color: var(--ink); max-width: 680px; margin: 0 auto 20px; text-align: center;
+    }
+    .scripture-feature .reference { display: block; text-align: center; }
+
+    .anachronism-list {
+      background: var(--cream); border: 1px solid var(--hairline);
+      padding: 36px 34px; margin: 32px 0;
+    }
+    .anachronism-list .list-title {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 20px;
+    }
+    .anachronism-list ul { list-style: none; padding: 0; }
+    .anachronism-list li {
+      font-size: 17px; line-height: 1.6; color: var(--ink-soft); padding: 10px 0;
+      border-bottom: 1px solid var(--hairline-soft);
+    }
+    .anachronism-list li:last-child { border-bottom: none; }
+    .anachronism-list li strong { color: var(--ink); font-weight: 600; }
+
+    .section-nav { padding: 60px 0 80px; border-top: 1px solid var(--hairline-soft); }
+    .section-nav-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .section-nav a {
+      text-decoration: none; color: inherit; padding: 24px 28px; border: 1px solid var(--hairline);
+      background: var(--cream); transition: border-color 0.25s ease, background 0.25s ease;
+      flex: 1; min-width: 260px;
+    }
+    .section-nav a:hover { border-color: var(--gold); background: var(--paper); }
+    .section-nav .direction {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 10px;
+    }
+    .section-nav h3 { font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; }
+    .section-nav h3 em { font-style: italic; color: var(--gold); }
+
+    footer { padding: 56px 0 48px; text-align: center; border-top: 1px solid var(--hairline-soft); }
+    .footer-mark {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 22px; font-style: italic; color: var(--ink); margin-bottom: 16px;
+    }
+    .footer-text {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); line-height: 1.7;
+    }
+
+    ::selection { background: var(--gold); color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">Come and See</a>
+        <div class="nav-links">
+          <a href="index.html#differences">Differences</a>
+          <a href="index.html#stories">Stories</a>
+          <a href="index.html#resources">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <span class="section-marker">04 / Six Differences</span>
+        <h1>A Different <em>Scripture.</em></h1>
+        <p class="hero-sub">The Standard Works are four books, not one. The Book of Abraham, canonized in the Pearl of Great Price, was translated from Egyptian papyri the Church now possesses. When real Egyptologists read those papyri, they do not find what Joseph Smith said he found. They find ordinary funerary texts.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">What the Church teaches</span>
+        <h2>Four books, all scripture, some more pressing than the others.</h2>
+        <p>You know the Standard Works by heart. The Bible (King James Version, as far as it is translated correctly). The Book of Mormon, described by Joseph Smith as <em>the most correct of any book on earth</em>. The Doctrine and Covenants, containing revelations given to Joseph Smith and later presidents of the Church. The Pearl of Great Price, a smaller volume containing the Book of Moses, the Book of Abraham, Joseph Smith's translation of Matthew 24, and Joseph Smith-History. Four books. One canon. All binding.</p>
+        <p>On top of the canon sits continuing revelation, delivered through the living Prophet and the Brethren, who can speak scripture into the present day. A General Conference address, given under the Spirit, can carry the authority of scripture. The Proclamation on the Family was released in 1995 as something very close to scripture, and is cited in temple recommend interviews. <em>The Living Christ</em>, issued in 2000, is another such document.</p>
+        <p>And then there is the Joseph Smith Translation, sometimes called the Inspired Version, in which Joseph revised the King James Bible to restore what he said had been lost. The JST is not canonized in the LDS Church in full, but selected passages are printed in the footnotes of the official LDS edition of the KJV, and are taught as restored truth.</p>
+        <p>This is what it means to say the LDS Church has an open canon. The Bible is the starting point. It is not the finish line, and it is not sufficient on its own.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The receipts</span>
+        <h2>The Book of Abraham is the test case.</h2>
+        <p>Here is something you may or may not have heard at church. In 1835, an Irish showman named Michael Chandler brought four Egyptian mummies and a set of papyrus scrolls to Kirtland, Ohio. Joseph Smith examined them, declared that one of the scrolls contained the writings of Abraham and another contained the writings of Joseph of Egypt, and bought the collection for the Church. Over the following years he produced the text of the Book of Abraham, which was published serially and eventually canonized in the Pearl of Great Price.</p>
+        <p>For the next century and a quarter, critics could only argue about the theology. The papyri themselves were assumed lost, destroyed in the great Chicago fire of 1871. Then in 1966, a professor at the University of Utah discovered that eleven fragments of the original papyri had been preserved at the Metropolitan Museum of Art in New York. The Museum transferred them to the Church in 1967. For the first time in modern history, the source documents Joseph Smith had used were publicly available to be read.</p>
+
+        <div class="receipt">
+          <p class="source">What the papyri actually are</p>
+          <blockquote>"The recovered papyri are fragments of an Egyptian funerary text known as the Book of Breathings, and a Book of the Dead scroll, dating to roughly the Ptolemaic period, centuries after Abraham. They are standard burial texts intended to help the deceased navigate the afterlife. They contain no reference to Abraham."</blockquote>
+          <cite>Consensus of Egyptologists, LDS and non-LDS, since the papyri's rediscovery in 1966. See also the Church's own 2014 Gospel Topics essay, "Translation and Historicity of the Book of Abraham."</cite>
+        </div>
+
+        <p>The Church's own Gospel Topics essay, published in 2014 as part of the initiative directed by the Brethren to address difficult historical questions, does not deny this. It acknowledges that the surviving papyri do not match the Book of Abraham text. It proposes instead that perhaps Joseph was translating from a scroll that is now lost (the "missing scroll" theory), or that the papyri served as a catalyst for revelation rather than as a source text (the "catalyst" theory). The essay is carefully worded. It is worth reading in full, on the Church's own website, as it represents the current official position.</p>
+        <p>But the facsimiles, printed right there in your Pearl of Great Price, tell a story of their own. Joseph Smith provided interpretations of the three Egyptian drawings. Those interpretations can now be checked against what Egyptologists know the drawings actually depict. Facsimile 1, which Joseph identified as Abraham bound on an altar about to be sacrificed by an idolatrous priest, is a standard lion-couch scene showing the Egyptian god Osiris being embalmed by Anubis. Facsimile 2 is a hypocephalus, a disk placed under a mummy's head. Facsimile 3 is a standard judgment-scene vignette. None of them are what Joseph said they were.</p>
+        <p>This is not hostile interpretation. It is Egyptology.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">The Book of Mormon</span>
+        <h2>The most correct book on earth, in the world of the early nineteenth century.</h2>
+        <p>The Book of Mormon describes an ancient American civilization, descended from Israelites who sailed to the Western Hemisphere around 600 BC. They built great cities, fought great wars, raised grain, rode horses, fought with steel swords, and collapsed in a final battle at Cumorah around 400 AD. Joseph Smith said he translated the text from gold plates buried in a hill in Palmyra, New York, using a seer stone placed in a hat.</p>
+        <p>The historicity of that story has been tested for two hundred years against archaeology, linguistics, genetics, and the broader record of pre-Columbian civilization in the Americas. The Book of Mormon describes a range of things that, as far as the evidence goes, were not present in the Americas in the period it covers.</p>
+
+        <div class="anachronism-list">
+          <p class="list-title">Items that appear in the Book of Mormon</p>
+          <ul>
+            <li><strong>Horses</strong> (1 Nephi 18:25, Enos 1:21, Alma 18:9-12). Horses went extinct in the Americas around 10,000 years before the Book of Mormon timeline begins, and were reintroduced by the Spanish in 1519.</li>
+            <li><strong>Chariots</strong> (Alma 18:9-10, 3 Nephi 3:22). No wheeled vehicles have been found in the pre-Columbian Americas outside of small ceremonial toys.</li>
+            <li><strong>Steel swords</strong> (1 Nephi 4:9, Ether 7:9). Steel metallurgy was unknown in the Americas until European contact.</li>
+            <li><strong>Wheat and barley</strong> (Mosiah 9:9). Wheat was brought by Europeans. Small native barley species have been identified but do not match the agricultural scale described.</li>
+            <li><strong>Elephants</strong> (Ether 9:19). Mammoths and mastodons went extinct around 10,000 BC, well before the Jaredite timeline.</li>
+            <li><strong>Silk</strong> (Alma 1:29, Alma 4:6). Silk is the product of the domesticated silkworm, native to East Asia.</li>
+          </ul>
+        </div>
+
+        <p>Alongside the anachronisms, there is the matter of the King James translation. The Book of Mormon was supposedly engraved on gold plates by Nephite prophets centuries before Christ. Yet it contains long stretches of text taken verbatim from the 1611 King James Bible, including translator errors that crept in through the KJV's Latin and Greek sources. Isaiah 9:1 appears in 2 Nephi 19:1 in its King James form, including a clause the KJV translators added to clarify the Hebrew. That clause is in the Book of Mormon. On gold plates, from 550 BC.</p>
+        <p>For DNA, archaeology, and linguistic evidence, the Church has addressed these questions in its Gospel Topics essays as well, proposing that the Nephite civilization may have been a small subset within a larger native population, and that their genetic signature has been diluted or lost. The essays are worth reading on their own. They are the official response.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The Bible</span>
+        <h2>The Word that was given is the Word that was preserved.</h2>
+        <p>The Bible itself does not promise a future restoration of lost scripture. It promises something else, repeatedly.</p>
+
+        <div class="scripture-feature">
+          <p>"Every word of God proves true; he is a shield to those who take refuge in him. Do not add to his words, lest he rebuke you and you be found a liar."</p>
+          <span class="reference">Proverbs 30:5-6</span>
+        </div>
+
+        <div class="scripture-feature">
+          <p>"You shall not add to the word which I command you, nor take from it, that you may keep the commandments of the Lord your God which I command you."</p>
+          <span class="reference">Deuteronomy 4:2</span>
+        </div>
+
+        <p>Paul tells Timothy, in the last letter he wrote before his death, that the Scriptures are sufficient. Not that they need restoring. Not that more is coming. That what God has given is already what the servant of God needs.</p>
+
+        <div class="scripture-feature">
+          <p>"All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness, that the man of God may be complete, equipped for every good work."</p>
+          <span class="reference">2 Timothy 3:16-17</span>
+        </div>
+
+        <p>And Jude, writing perhaps the last book of the New Testament to be written, describes the faith as something that was already delivered, in full, at that time.</p>
+
+        <div class="scripture-feature">
+          <p>"Beloved, although I was very eager to write to you about our common salvation, I found it necessary to write appealing to you to contend for the faith that was once for all delivered to the saints."</p>
+          <span class="reference">Jude 1:3</span>
+        </div>
+
+        <p>Once for all delivered. Not once for the first century, to be re-delivered later. Once, for all time.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">The difference</span>
+        <h2>The question is not whether you trust the Brethren. The question is whether the texts hold up.</h2>
+        <p>The Church has always said that the burden of its claims rests on Joseph Smith. <em>Mormonism, as it is called, must stand or fall on the story of Joseph Smith</em>, Gordon B. Hinckley said in April 2003. And Joseph Smith's story rests, in turn, on the texts he produced. The Book of Mormon, as translated by the gift and power of God. The Book of Abraham, as translated from Egyptian papyri. The Book of Moses and the Joseph Smith Translation, as restorations of lost biblical content.</p>
+        <p>Those texts have now been subjected to more than a century of archaeology and Egyptology, and the documentary evidence is no longer mysterious. The Book of Abraham papyri are available and translated. The Book of Mormon anachronisms are catalogued. The Church has responded to the questions in its Gospel Topics essays, and has chosen its framing carefully. But the framing does not make the evidence go away.</p>
+        <p>If the Bible alone is the sufficient written Word of God, delivered once for all, then no additional restoration was promised or given. If additional restoration was promised and given, then the evidence for the restoration should be as clear as the evidence against it. It is not.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">A word to the one reading</span>
+        <h2>You do not need another book to find the Savior.</h2>
+        <p>Every missionary is trained to say that the Bible and the Book of Mormon work together, two witnesses of Jesus Christ. The Bible alone, in LDS teaching, cannot give you the full picture. The Book of Mormon completes it. The temple ordinances finish what the scriptures start.</p>
+        <p>But if you read the Gospel of John carefully, slowly, without any other text open beside it, you will find the Savior claiming, in His own words, that the Scriptures already given are enough. <em>You search the Scriptures because you think that in them you have eternal life; and it is they that bear witness about me</em> (John 5:39). The word He used, <em>Scriptures</em>, referred to the Hebrew Bible. The Old Testament, as you have it. He was saying that the book you could already hold in your hands was sufficient to lead you to Him.</p>
+        <p>The same invitation still stands. You do not need a seer stone, or a set of gold plates, or an Egyptian papyrus, or a living prophet, to meet the Savior. You need a Bible and a willing heart. The Bible is enough. He will meet you there.</p>
+        <p>Come and see.</p>
+      </div>
+    </section>
+
+    <section class="section-nav">
+      <div class="container-wide">
+        <div class="section-nav-inner">
+          <a href="come-and-see-03-gospel.html">
+            <div class="direction">← Previous</div>
+            <h3>03 / A Different <em>Gospel</em></h3>
+          </a>
+          <a href="come-and-see-05-history.html">
+            <div class="direction">Next →</div>
+            <h3>05 / A Different <em>History</em></h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-mark">Come and See</p>
+      <p class="footer-text">
+        A pastoral resource from The Chalet Retreat Ministries<br>
+        Roan Mountain, Tennessee &nbsp;·&nbsp; hello@thechaletretreat.org
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

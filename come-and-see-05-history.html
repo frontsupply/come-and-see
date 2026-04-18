@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Different History | Come and See</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f2e7; --paper: #efe7d4; --ink: #1f1811; --ink-soft: #4a3f33;
+      --ink-mute: #776859; --gold: #8b6b2a; --gold-soft: #b08d47;
+      --teal: #2c5953; --teal-soft: #447a73; --hairline: #d9cbb0; --hairline-soft: #e6dcc4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'Newsreader', Georgia, serif; font-size: 19px; line-height: 1.7;
+      font-weight: 380; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(139, 107, 42, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(44, 89, 83, 0.02) 0%, transparent 50%);
+    }
+    main, nav, footer { position: relative; z-index: 1; }
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .eyebrow {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold);
+    }
+    .reference {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 24px 0; border-bottom: 1px solid var(--hairline-soft); background: var(--cream); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 20px; font-weight: 400; font-style: italic; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 640px) { .nav-links { gap: 18px; font-size: 13px; } }
+
+    .hero { padding: 100px 0 80px; border-bottom: 1px solid var(--hairline-soft); }
+    .hero .section-marker {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 40px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 104px); line-height: 0.95;
+      letter-spacing: -0.035em; margin-bottom: 36px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    .hero-sub {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 24px; line-height: 1.45; font-style: italic; color: var(--ink-soft); max-width: 600px;
+    }
+
+    section.content { padding: 80px 0; }
+    section.content + section.content { border-top: 1px solid var(--hairline-soft); }
+    section.content.paper { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+    section.content h2 {
+      font-size: clamp(30px, 4.2vw, 40px); line-height: 1.15; margin-bottom: 32px; letter-spacing: -0.025em;
+    }
+    section.content h2 em { font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80; }
+    section.content .eyebrow { display: block; margin-bottom: 18px; }
+    section.content p { font-size: 19px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 22px; }
+    section.content p:last-child { margin-bottom: 0; }
+    section.content p em { color: var(--ink); font-style: italic; }
+    section.content p strong { color: var(--ink); font-weight: 600; }
+
+    .receipt { background: var(--cream); border: 1px solid var(--hairline); padding: 36px 34px; margin: 32px 0; }
+    .receipt .source {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px;
+    }
+    .receipt blockquote {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 20px; line-height: 1.55; font-style: italic; color: var(--ink); margin-bottom: 14px;
+    }
+    .receipt cite {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); font-style: normal;
+    }
+
+    .scripture-feature {
+      text-align: center; margin: 48px 0; padding: 40px 0;
+      border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+    }
+    .scripture-feature p {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: clamp(22px, 3vw, 28px); line-height: 1.45; font-style: italic;
+      color: var(--ink); max-width: 680px; margin: 0 auto 20px; text-align: center;
+    }
+    .scripture-feature .reference { display: block; text-align: center; }
+
+    .section-nav { padding: 60px 0 80px; border-top: 1px solid var(--hairline-soft); }
+    .section-nav-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .section-nav a {
+      text-decoration: none; color: inherit; padding: 24px 28px; border: 1px solid var(--hairline);
+      background: var(--cream); transition: border-color 0.25s ease, background 0.25s ease;
+      flex: 1; min-width: 260px;
+    }
+    .section-nav a:hover { border-color: var(--gold); background: var(--paper); }
+    .section-nav .direction {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 10px;
+    }
+    .section-nav h3 { font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; }
+    .section-nav h3 em { font-style: italic; color: var(--gold); }
+
+    footer { padding: 56px 0 48px; text-align: center; border-top: 1px solid var(--hairline-soft); }
+    .footer-mark {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 22px; font-style: italic; color: var(--ink); margin-bottom: 16px;
+    }
+    .footer-text {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); line-height: 1.7;
+    }
+
+    ::selection { background: var(--gold); color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">Come and See</a>
+        <div class="nav-links">
+          <a href="index.html#differences">Differences</a>
+          <a href="index.html#stories">Stories</a>
+          <a href="index.html#resources">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <span class="section-marker">05 / Six Differences</span>
+        <h1>A Different <em>History.</em></h1>
+        <p class="hero-sub">The whole structure of the Restoration depends on an earlier collapse. If the gates of hell did prevail, and the true Church disappeared entirely after the death of the last apostle, then Joseph Smith's mission makes sense. If they did not, and it did not, then what was he restoring?</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">What the Church teaches</span>
+        <h2>The Great Apostasy is not a minor doctrine.</h2>
+        <p>It is the foundation under the foundation. Every claim the Church makes about its own necessity begins here. The original apostles were killed. The authority they carried, the Melchizedek priesthood, died with them. The ordinances were corrupted. The doctrine was muddled. The church councils of the fourth century, producing the Nicene Creed and the later formulations, enshrined philosophical error where revealed truth had been. The result, according to LDS teaching, was a total apostasy that lasted roughly eighteen hundred years.</p>
+        <p>In that long darkness, there was no true church on the earth. There were sincere believers, yes. There were faithful hearts. But there was no priesthood authority, no properly administered ordinances, no prophet, no living revelation. The best of the historic Christian traditions were holding onto fragments of the truth, but the whole was gone. God was waiting for the fullness of times, when He would restore what had been lost.</p>
+        <p>That restoration began in 1820 in the Sacred Grove in Palmyra, when fourteen-year-old Joseph Smith prayed to ask which of the churches he should join. He was told, in the canonized account, that he should join none of them.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The receipts</span>
+        <h2>From the Prophet's own canonized account.</h2>
+
+        <div class="receipt">
+          <p class="source">Joseph Smith-History 1:19</p>
+          <blockquote>"I was answered that I must join none of them, for they were all wrong; and the Personage who addressed me said that all their creeds were an abomination in his sight; that those professors were all corrupt; that: 'they draw near to me with their lips, but their hearts are far from me, they teach for doctrines the commandments of men, having a form of godliness, but they deny the power thereof.'"</blockquote>
+          <cite>Joseph Smith-History 1:19, Pearl of Great Price, canonized 1880.</cite>
+        </div>
+
+        <p>Notice what is being claimed here. Not that the historic Christian churches had drifted on minor points. Not that they needed reform on some doctrines. The personage identified as the Lord tells Joseph that <em>all</em> their creeds are an abomination. Every one. Protestant, Catholic, Orthodox. The people who professed Christ in those traditions are <em>all corrupt</em>.</p>
+        <p>This is what the Church means by the Great Apostasy. It is total. It is the condition that makes restoration necessary. Without it, there is nothing to restore.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">The Bible</span>
+        <h2>The Savior made a promise that speaks directly to this claim.</h2>
+        <p>When Peter confessed that Jesus was the Christ, the Son of the living God, the Savior's response was a promise about the Church He was going to build. Not a hope. Not a plan. A promise.</p>
+
+        <div class="scripture-feature">
+          <p>"And I tell you, you are Peter, and on this rock I will build my church, and the gates of hell shall not prevail against it."</p>
+          <span class="reference">Matthew 16:18</span>
+        </div>
+
+        <p>The structure of the sentence matters. Jesus does not say the gates of hell will probably not prevail, or that they will not prevail for a season. He says they will not prevail. Period. The Greek is a strong negative. The promise is absolute.</p>
+        <p>If the gates of hell prevailed for eighteen centuries, then this verse is not true. If this verse is true, then the gates of hell did not prevail, which means the true Church was not entirely lost. Both cannot hold at once.</p>
+        <p>The promise is reinforced a few chapters later, at the end of Matthew, when the Savior sends the apostles to make disciples of all nations.</p>
+
+        <div class="scripture-feature">
+          <p>"And behold, I am with you always, to the end of the age."</p>
+          <span class="reference">Matthew 28:20</span>
+        </div>
+
+        <p>Always. To the end of the age. Not for four centuries and then eighteen more centuries of absence. Always.</p>
+        <p>Paul tells the Ephesians that glory is given to God <em>in the church and in Christ Jesus throughout all generations, forever and ever</em> (Ephesians 3:21). Again the structure. All generations. Not some generations, with a long gap in the middle. All.</p>
+
+        <div class="scripture-feature">
+          <p>"I will ask the Father, and he will give you another Helper, to be with you forever, even the Spirit of truth."</p>
+          <span class="reference">John 14:16-17</span>
+        </div>
+
+        <p>The Helper is not said to depart for eighteen centuries. The Helper remains. The Spirit is given, and by the Spirit the faithful have been preserved, generation after generation, without interruption.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The historical record</span>
+        <h2>The witnesses to an unbroken gospel are not hidden.</h2>
+        <p>You do not have to take this on faith. The record is open. It is messy, it includes real failure and real corruption, it includes councils and schisms and reformations. But the record of Christian witness is continuous from the first century to the present, and a great deal of it is not what the Great Apostasy narrative leads you to expect.</p>
+        <p>Ignatius of Antioch, writing around 110 AD, on his way to be martyred, insists on the deity of Christ and the unity of the Church. Justin Martyr in the second century defends the faith to the Roman emperor, articulating the resurrection, the Eucharist, and baptism in terms that any Christian today would recognize. Irenaeus in the late second century writes <em>Against Heresies</em>, defending the apostolic tradition against early Gnostic distortions, citing the four Gospels by name, defending a regular reading of Scripture. These men were not corrupt. They were bleeding for Jesus.</p>
+        <p>The great creeds of the third and fourth centuries (the Apostles' Creed, the Nicene Creed) were not acts of apostasy. They were acts of faithful witness, articulating what the apostles had taught against the pressures of new heresies. Athanasius stood against the Arians, at great personal cost, to defend what the apostles had said about the divinity of Christ. Augustine wrote on grace and the free gift of salvation in language that would be entirely recognizable to Paul.</p>
+        <p>The monks of the medieval period preserved and copied the Scriptures. The Waldensians, the Hussites, the Lollards preached the gospel of grace before the Reformation ever began. Wycliffe translated the Bible into English and was persecuted for it. Tyndale did the same and was strangled and burned for it. The Reformation itself was not a restoration of a lost gospel. It was the open announcement, by men who had read the Scriptures for themselves, of a gospel that had been preached underneath and alongside the corruptions of the church all along.</p>
+        <p>And in every century, in every region, faithful Christian men and women died rather than deny the Savior. They went to the lions, to the stakes, to the gallows. They were not waiting for a restoration. They were already with Jesus.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">The difference</span>
+        <h2>If the promise of Jesus is true, the Restoration is not needed.</h2>
+        <p>This is the heart of it. If the gates of hell did not prevail, then there has always been a true Church, hidden in some eras, visible in others, always imperfect, always composed of sinners, always built on Christ, never lost. And the Great Apostasy is not a historical event. It is a theological claim invented to justify a newer one.</p>
+        <p>We can believe, gently and with charity, that Joseph Smith was sincere. We can grant that the nineteenth-century American religious landscape was a mess of revivalism, denominational competition, and genuine spiritual hunger. We can understand why a young man in that context would wonder which church to join, and why an answer that said <em>none of them</em> would feel simpler and more satisfying than the patient historical work of discerning faithful witness inside the traditions. But we cannot, without rejecting the plain words of the Savior, believe that the Church He promised to build was entirely absent for eighteen centuries.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">A word to the one reading</span>
+        <h2>You have brothers and sisters in the faith that you did not know you had.</h2>
+        <p>One of the quietest losses in LDS life is the sense that the Christian tradition outside the Church was just noise. Protestant neighbors, Catholic grandparents, the Orthodox priest at the hospital. All of them, according to the First Vision account, were <em>all corrupt</em>. Their creeds, <em>all an abomination</em>. Their worship, a form of godliness denying the power thereof. It is hard to love someone across a chasm like that, and many Saints have tried anyway, out of sheer good faith.</p>
+        <p>But the chasm is not real. The Christians in the next pew at the Baptist church on Sunday morning, or at the evangelical gathering down the street, or in the Orthodox liturgy across town, are your brothers and sisters in the Savior. Not all of them are perfect teachers, and some of them hold errors worth correcting. But they have met the Jesus you are beginning to meet. They have been loved by the Father you are beginning to know. They are part of the Church the gates of hell did not prevail against.</p>
+        <p>You are not alone. You are coming home.</p>
+        <p>Come and see.</p>
+      </div>
+    </section>
+
+    <section class="section-nav">
+      <div class="container-wide">
+        <div class="section-nav-inner">
+          <a href="come-and-see-04-scripture.html">
+            <div class="direction">← Previous</div>
+            <h3>04 / A Different <em>Scripture</em></h3>
+          </a>
+          <a href="come-and-see-06-prophet.html">
+            <div class="direction">Next →</div>
+            <h3>06 / A Different <em>Prophet</em></h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-mark">Come and See</p>
+      <p class="footer-text">
+        A pastoral resource from The Chalet Retreat Ministries<br>
+        Roan Mountain, Tennessee &nbsp;·&nbsp; hello@thechaletretreat.org
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

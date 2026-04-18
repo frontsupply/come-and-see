@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Different Prophet | Come and See</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f2e7; --paper: #efe7d4; --ink: #1f1811; --ink-soft: #4a3f33;
+      --ink-mute: #776859; --gold: #8b6b2a; --gold-soft: #b08d47;
+      --teal: #2c5953; --teal-soft: #447a73; --hairline: #d9cbb0; --hairline-soft: #e6dcc4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'Newsreader', Georgia, serif; font-size: 19px; line-height: 1.7;
+      font-weight: 380; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(139, 107, 42, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(44, 89, 83, 0.02) 0%, transparent 50%);
+    }
+    main, nav, footer { position: relative; z-index: 1; }
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .eyebrow {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold);
+    }
+    .reference {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 24px 0; border-bottom: 1px solid var(--hairline-soft); background: var(--cream); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 20px; font-weight: 400; font-style: italic; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 640px) { .nav-links { gap: 18px; font-size: 13px; } }
+
+    .hero { padding: 100px 0 80px; border-bottom: 1px solid var(--hairline-soft); }
+    .hero .section-marker {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 40px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 104px); line-height: 0.95;
+      letter-spacing: -0.035em; margin-bottom: 36px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    .hero-sub {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 24px; line-height: 1.45; font-style: italic; color: var(--ink-soft); max-width: 600px;
+    }
+
+    section.content { padding: 80px 0; }
+    section.content + section.content { border-top: 1px solid var(--hairline-soft); }
+    section.content.paper { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+    section.content h2 {
+      font-size: clamp(30px, 4.2vw, 40px); line-height: 1.15; margin-bottom: 32px; letter-spacing: -0.025em;
+    }
+    section.content h2 em { font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80; }
+    section.content .eyebrow { display: block; margin-bottom: 18px; }
+    section.content p { font-size: 19px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 22px; }
+    section.content p:last-child { margin-bottom: 0; }
+    section.content p em { color: var(--ink); font-style: italic; }
+    section.content p strong { color: var(--ink); font-weight: 600; }
+
+    .receipt { background: var(--cream); border: 1px solid var(--hairline); padding: 36px 34px; margin: 32px 0; }
+    .receipt .source {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px;
+    }
+    .receipt blockquote {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 20px; line-height: 1.55; font-style: italic; color: var(--ink); margin-bottom: 14px;
+    }
+    .receipt cite {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); font-style: normal;
+    }
+
+    .scripture-feature {
+      text-align: center; margin: 48px 0; padding: 40px 0;
+      border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+    }
+    .scripture-feature p {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: clamp(22px, 3vw, 28px); line-height: 1.45; font-style: italic;
+      color: var(--ink); max-width: 680px; margin: 0 auto 20px; text-align: center;
+    }
+    .scripture-feature .reference { display: block; text-align: center; }
+
+    .comparison-table {
+      background: var(--cream); border: 1px solid var(--hairline); margin: 32px 0;
+    }
+    .comparison-table .table-title {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500;
+      padding: 24px 30px 0; margin-bottom: 12px;
+    }
+    .comparison-row {
+      padding: 22px 30px; border-top: 1px solid var(--hairline-soft);
+    }
+    .comparison-row:first-of-type { border-top: 1px solid var(--hairline); }
+    .comparison-row .label {
+      font-family: 'Instrument Sans', sans-serif; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 8px;
+    }
+    .comparison-row .content {
+      font-size: 16px; line-height: 1.6; color: var(--ink-soft);
+    }
+    .comparison-row .content strong { color: var(--ink); font-weight: 600; }
+
+    .section-nav { padding: 60px 0 80px; border-top: 1px solid var(--hairline-soft); }
+    .section-nav-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .section-nav a {
+      text-decoration: none; color: inherit; padding: 24px 28px; border: 1px solid var(--hairline);
+      background: var(--cream); transition: border-color 0.25s ease, background 0.25s ease;
+      flex: 1; min-width: 260px;
+    }
+    .section-nav a:hover { border-color: var(--gold); background: var(--paper); }
+    .section-nav .direction {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 10px;
+    }
+    .section-nav h3 { font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; }
+    .section-nav h3 em { font-style: italic; color: var(--gold); }
+
+    footer { padding: 56px 0 48px; text-align: center; border-top: 1px solid var(--hairline-soft); }
+    .footer-mark {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 22px; font-style: italic; color: var(--ink); margin-bottom: 16px;
+    }
+    .footer-text {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); line-height: 1.7;
+    }
+
+    ::selection { background: var(--gold); color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">Come and See</a>
+        <div class="nav-links">
+          <a href="index.html#differences">Differences</a>
+          <a href="index.html#stories">Stories</a>
+          <a href="index.html#resources">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <span class="section-marker">06 / Six Differences</span>
+        <h1>A Different <em>Prophet.</em></h1>
+        <p class="hero-sub">The Bible gives Israel a simple test for distinguishing a true prophet from a false one. The test is still in force. The Brethren teach that the Church stands or falls on Joseph Smith, and so do we. When his own record is read against the test in Deuteronomy, the result is not ambiguous.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">What the Church teaches</span>
+        <h2>Everything rests on Joseph.</h2>
+        <p>No member of the Church has ever been taught otherwise. President Gordon B. Hinckley, in April of 2003, put it as plainly as it has ever been put. <em>Mormonism, as it is called, must stand or fall on the story of Joseph Smith. He was either a prophet of God, divinely called, properly appointed and commissioned, or he was one of the biggest frauds this world has ever seen. There is no middle ground.</em></p>
+        <p>That is the right frame. Joseph Smith is the hinge. If his prophetic claim is true, then the First Vision happened as he described it, the Book of Mormon was translated by the gift and power of God, the Aaronic priesthood was restored by John the Baptist in May of 1829, the Melchizedek priesthood was restored by Peter, James, and John shortly after, and the Restoration proceeded as the canonized account describes. If his prophetic claim is false, nothing else the Church teaches can stand on its own.</p>
+        <p>This is not our framing. It is the Brethren's framing. We are taking them at their word.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The test</span>
+        <h2>The Bible's test for a prophet is simpler than many expect.</h2>
+
+        <div class="scripture-feature">
+          <p>"When a prophet speaks in the name of the LORD, if the word does not come to pass or come true, that is a word that the LORD has not spoken; the prophet has spoken it presumptuously. You need not be afraid of him."</p>
+          <span class="reference">Deuteronomy 18:22</span>
+        </div>
+
+        <p>The test is narrow. A prophet must speak words that come to pass. If the words do not come to pass, the prophet was not sent. This is not a test of sincerity. It is not a test of good intentions. Many false prophets are perfectly sincere. The test is of fulfillment.</p>
+        <p>The Savior gave a parallel test in the Sermon on the Mount, a test of fruit rather than of prediction.</p>
+
+        <div class="scripture-feature">
+          <p>"Beware of false prophets, who come to you in sheep's clothing but inwardly are ravenous wolves. You will recognize them by their fruits."</p>
+          <span class="reference">Matthew 7:15-16</span>
+        </div>
+
+        <p>Between the two tests, Israel and the Church have always had enough to work with. A prophet whose predictions fail is not speaking for God. A prophet whose fruit is the destruction of the flock is not sent by the Good Shepherd. We are asked to apply these tests with charity, with patience, and without fear. <em>You need not be afraid of him</em>, the Lord says to Israel. The test is not aggressive. It is protective.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">The First Vision</span>
+        <h2>There are nine known accounts. Four are from Joseph Smith himself.</h2>
+        <p>The First Vision is the moment Mormonism begins. It is the foundational theophany of the Restoration. It is the event that, according to the canonized account, determined that Joseph Smith would join none of the existing churches. You can see it depicted in stained glass in temple visitor centers. You can hear it recited in missionary discussions. You have almost certainly borne testimony of it.</p>
+        <p>The canonized version, published in the Pearl of Great Price as Joseph Smith-History, tells of a fourteen-year-old boy going into a grove of trees in 1820 and being visited by two Personages, the Father and the Son. This is the version the missionaries teach.</p>
+        <p>It is not the only version Joseph Smith told. The Church's own Gospel Topics essay, "First Vision Accounts," published in 2013 as part of the Brethren's transparency initiative, identifies nine known accounts of the First Vision. Four of them are from Joseph himself.</p>
+
+        <div class="comparison-table">
+          <p class="table-title">The four accounts by Joseph Smith</p>
+          <div class="comparison-row">
+            <p class="label">1832 Account (Joseph's handwriting, earliest known)</p>
+            <p class="content">Describes <strong>one personage</strong>, "the Lord," appearing to Joseph. Framed primarily as a vision of forgiveness of sins. Does not mention the Father as a separate being. Joseph's age is given as in his sixteenth year.</p>
+          </div>
+          <div class="comparison-row">
+            <p class="label">1835 Account (dictated to Warren Parrish)</p>
+            <p class="content">Describes seeing one personage, and then another, and then "many angels." No clear Father-and-Son structure. Age given as about fourteen.</p>
+          </div>
+          <div class="comparison-row">
+            <p class="label">1838 Account (the canonized version)</p>
+            <p class="content">Describes <strong>two personages</strong>, identified as the Father and the Son, the Father pointing to the Son and saying "This is My Beloved Son. Hear Him." The declaration that all existing churches are an abomination. Age given as in his fifteenth year, meaning age fourteen.</p>
+          </div>
+          <div class="comparison-row">
+            <p class="label">1842 Wentworth Letter</p>
+            <p class="content">Abridged and adjusted for a public newspaper audience. Two personages mentioned. Abomination language softened significantly.</p>
+          </div>
+        </div>
+
+        <p>The Gospel Topics essay addresses the differences by noting that eyewitnesses often emphasize different details when telling the same story multiple times, and that the core of the event is consistent across all accounts. This is a fair argument in the abstract. But the differences are not only in emphasis. In one account there is one personage. In another there are two. In another there are multiple angels. In one the focus is personal forgiveness. In another the focus is an indictment of all existing Christianity. The age varies. The framing varies. The theological implications vary.</p>
+        <p>The question is not whether Joseph had <em>some</em> experience as a young man. It is whether the specific canonized account, the one every missionary teaches, is the version that actually happened. For most of Joseph's life, he did not tell the story that is now canonized. He told other stories, and the canonical version only emerged in the late 1830s.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The Kinderhook plates</span>
+        <h2>A hoax that Joseph began to translate.</h2>
+        <p>In April of 1843, three men from Kinderhook, Illinois brought six bell-shaped brass plates to Nauvoo and presented them to Joseph Smith, claiming to have dug them up from a burial mound. Joseph examined the plates, and according to William Clayton's contemporary journal (Clayton was Joseph's personal secretary), Joseph stated that the plates contained the history of the person with whom they were found. <em>He was a descendant of Ham, through the loins of Pharaoh king of Egypt, and that he received his kingdom from the ruler of heaven and earth.</em></p>
+
+        <div class="receipt">
+          <p class="source">William Clayton's Journal, May 1, 1843</p>
+          <blockquote>"I have seen 6 brass plates which were found in Adams County… President J. has translated a portion and says they contain the history of the person with whom they were found and he was a descendant of Ham through the loins of Pharaoh king of Egypt, and that he received his kingdom from the Ruler of heaven and earth."</blockquote>
+          <cite>William Clayton, personal journal, reproduced in History of the Church, vol. 5, p. 372.</cite>
+        </div>
+
+        <p>The plates, as it turned out, were a hoax. In 1879, one of the men who had manufactured them, Wilbur Fugate, confessed in a letter that they had been etched with acid onto sheets of brass specifically to see whether Joseph Smith would pronounce them ancient. In 1980, one of the surviving plates was subjected to scientific analysis at Northwestern University. The analysis confirmed the plates were nineteenth-century forgeries. The brass, the etching technique, and the chemistry of the surface were all consistent with a local blacksmith in 1843. They were not ancient in any sense.</p>
+        <p>Joseph began to translate. The translation stopped when he was killed a year later, so we do not know how far he would have taken it. But he had already committed, in the presence of witnesses and in his secretary's journal, to a "translation" of a document that was not ancient and did not say what he said it said. The Church's response to this event has varied over the years. Some defenders have argued Joseph's translation attempt was non-revelatory, or that Clayton's journal overstates what Joseph did. The simplest reading, the one the contemporary record supports, is that he was deceived, and that he pronounced divine translation of a fraud.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">False prophecies</span>
+        <h2>The test of Deuteronomy 18 applied.</h2>
+        <p>Several prophecies Joseph Smith delivered, recorded in contemporary documents and later canonized in the Doctrine and Covenants, can now be evaluated by the standard the Lord gave Israel. Here are three that fail the test.</p>
+
+        <div class="comparison-table">
+          <p class="table-title">Prophecies of Joseph Smith that did not come to pass</p>
+          <div class="comparison-row">
+            <p class="label">D&C 84:4-5 (September 1832) | The Independence Temple</p>
+            <p class="content">"Which city shall be built, beginning at the temple lot, which is appointed by the finger of the Lord, in the western boundaries of the State of Missouri… a cloud shall rest upon it, which cloud shall be even the glory of the Lord, which shall fill the house. <strong>Verily this generation shall not all pass away until an house shall be built unto the Lord.</strong>" The Saints were driven out of Missouri in 1838. The generation Joseph prophesied about has been gone for over a century. No temple has been built on the Independence temple lot. The prophecy failed.</p>
+          </div>
+          <div class="comparison-row">
+            <p class="label">D&C 114:1 (April 1838) | The Mission of David Patten</p>
+            <p class="content">"Verily thus saith the Lord: It is wisdom in my servant David W. Patten, that he settle up all his business as soon as he possibly can, and make a disposition of his merchandise, <strong>that he may perform a mission unto me next spring, in company with others, even twelve including himself, to testify of my name and bear glad tidings unto all the world.</strong>" Patten was killed at the Battle of Crooked River in October 1838, six months after the revelation. He never performed the mission. The prophecy failed.</p>
+          </div>
+          <div class="comparison-row">
+            <p class="label">History of the Church, vol. 2, pp. 182 (December 1832) | The "Coming of the Lord"</p>
+            <p class="content">Joseph wrote that he had been shown in vision that the Lord would come to the earth within fifty-six years, meaning by 1890 at the latest. "I was left thus, without being able to decide as to which was meant, the Lord or myself. I was left to conclude from what was shown me, that if I lived until that time, He would make His appearance. But I do not say whether He will make His appearance or I shall go where He is." The year 1890 passed. The Lord did not return. The prophecy failed.</p>
+          </div>
+        </div>
+
+        <p>These are not isolated passages from early, uncorrelated teachings. Two of them are canonized in the Doctrine and Covenants, which the Church presents as binding scripture received by the gift and power of God. The test the Lord gave Israel is clear. Words spoken presumptuously in the name of the Lord, words that do not come to pass, are words that the Lord has not spoken. The prophet has spoken them presumptuously.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The difference</span>
+        <h2>This is the conclusion the Brethren themselves set up.</h2>
+        <p>President Hinckley was right. There is no middle ground. If Joseph Smith was a true prophet, the Church's claims stand. If he was not, they do not. The Brethren teach the member to rest the entire faith on this point. That is a bold move, and a risky one, because it means that any single disqualifying piece of the record is sufficient to reset the whole question.</p>
+        <p>The record we have (the multiple and contradictory First Vision accounts, the Kinderhook incident, the failed prophecies, the Book of Abraham papyri, the Book of Mormon anachronisms, the Masonic structure of the temple endowment, the polygamy and theocratic governance at Nauvoo, the theological reversals between revelations) is not a collection of attacks from enemies. It is the Church's own history, available in the Church's own Joseph Smith Papers project, acknowledged in the Church's own Gospel Topics essays, preserved because the Church wanted it preserved. The Brethren have already told you that the whole thing stands or falls on Joseph Smith. They have also, quietly, given you access to the record by which that judgment can be made.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">A word to the one reading</span>
+        <h2>Jesus does not need Joseph to be real.</h2>
+        <p>This may be the hardest thing on this page to hear. Joseph Smith is woven into the language you use to speak about God, into the structure of every ordinance you have received, into the memory of every Sacrament meeting you have sat through, into the faith your parents and grandparents lived and died in. To suggest that the whole structure is resting on something that will not hold is to touch something deep.</p>
+        <p>But the Savior is not at risk. Jesus is still the Savior whether or not Joseph Smith was a prophet. The Father is still the Father. The Scriptures are still the Scriptures. The gospel is still good news for sinners. Nothing that is true about God depends on the reliability of Joseph. And if Joseph turns out not to have been what he said he was, everything precious about the Savior remains precious, untouched, waiting for you in the Gospel of John.</p>
+        <p>The invitation is the same one Philip gave Nathanael in the first chapter of that Gospel. The one true Prophet, the one whose words never fail, the one who is Himself the fulfillment of Deuteronomy 18:15-18, is waiting for you to read about Him in His own words. Not Joseph's. His.</p>
+        <p>Come and see.</p>
+      </div>
+    </section>
+
+    <section class="section-nav">
+      <div class="container-wide">
+        <div class="section-nav-inner">
+          <a href="come-and-see-05-history.html">
+            <div class="direction">← Previous</div>
+            <h3>05 / A Different <em>History</em></h3>
+          </a>
+          <a href="index.html">
+            <div class="direction">Home</div>
+            <h3>Back to the <em>landing</em></h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-mark">Come and See</p>
+      <p class="footer-text">
+        A pastoral resource from The Chalet Retreat Ministries<br>
+        Roan Mountain, Tennessee &nbsp;·&nbsp; hello@thechaletretreat.org
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
