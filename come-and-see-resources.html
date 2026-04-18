@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Resources | Come and See</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f2e7; --paper: #efe7d4; --ink: #1f1811; --ink-soft: #4a3f33;
+      --ink-mute: #776859; --gold: #8b6b2a; --gold-soft: #b08d47;
+      --teal: #2c5953; --teal-soft: #447a73; --hairline: #d9cbb0; --hairline-soft: #e6dcc4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'Newsreader', Georgia, serif; font-size: 19px; line-height: 1.7;
+      font-weight: 380; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(139, 107, 42, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(44, 89, 83, 0.02) 0%, transparent 50%);
+    }
+    main, nav, footer { position: relative; z-index: 1; }
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .eyebrow {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold);
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 24px 0; border-bottom: 1px solid var(--hairline-soft); background: var(--cream); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 20px; font-weight: 400; font-style: italic; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 640px) { .nav-links { gap: 18px; font-size: 13px; } }
+
+    .hero { padding: 100px 0 80px; border-bottom: 1px solid var(--hairline-soft); }
+    .hero .section-marker {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 40px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 104px); line-height: 0.95;
+      letter-spacing: -0.035em; margin-bottom: 36px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    .hero-sub {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 24px; line-height: 1.45; font-style: italic; color: var(--ink-soft); max-width: 620px;
+    }
+
+    section.content { padding: 80px 0; }
+    section.content + section.content { border-top: 1px solid var(--hairline-soft); }
+    section.content.paper { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+    section.content h2 {
+      font-size: clamp(30px, 4.2vw, 40px); line-height: 1.15; margin-bottom: 32px; letter-spacing: -0.025em;
+    }
+    section.content h2 em { font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80; }
+    section.content .eyebrow { display: block; margin-bottom: 18px; }
+    section.content .lede { font-size: 19px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 36px; }
+    section.content .lede:last-child { margin-bottom: 0; }
+
+    .resource-group { margin-top: 12px; }
+    .resource {
+      padding: 26px 0; border-top: 1px solid var(--hairline-soft);
+    }
+    .resource:first-child { border-top: 1px solid var(--hairline); }
+    .resource .resource-meta {
+      font-family: 'Instrument Sans', sans-serif; font-size: 11px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 6px;
+    }
+    .resource h3 {
+      font-size: 22px; line-height: 1.25; margin-bottom: 6px; letter-spacing: -0.015em;
+    }
+    .resource h3 em { font-style: italic; color: var(--ink); font-variation-settings: "opsz" 144, "SOFT" 60; }
+    .resource .byline {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; color: var(--ink-mute);
+      letter-spacing: 0.02em; margin-bottom: 10px;
+    }
+    .resource p {
+      font-size: 17px; line-height: 1.65; color: var(--ink-soft); margin-bottom: 10px;
+    }
+    .resource a.resource-link {
+      display: inline-block; margin-top: 2px;
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--teal); text-decoration: none; border-bottom: 1px solid var(--teal-soft);
+      padding-bottom: 1px; transition: color 0.2s ease;
+    }
+    .resource a.resource-link:hover { color: var(--gold); border-bottom-color: var(--gold); }
+
+    .note-box {
+      background: var(--cream); border: 1px solid var(--hairline);
+      padding: 30px 32px; margin: 32px 0;
+    }
+    .note-box p {
+      font-size: 17px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 14px;
+    }
+    .note-box p:last-child { margin-bottom: 0; }
+    .note-box .note-label {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 14px;
+    }
+
+    .cta-block {
+      padding: 60px 40px; background: var(--cream); border: 1px solid var(--hairline);
+      text-align: center; margin-top: 40px;
+    }
+    .cta-block h3 {
+      font-size: 28px; line-height: 1.2; margin-bottom: 16px; letter-spacing: -0.02em;
+    }
+    .cta-block h3 em { font-style: italic; color: var(--gold); }
+    .cta-block p {
+      font-size: 18px; line-height: 1.7; color: var(--ink-soft); margin-bottom: 24px;
+      max-width: 520px; margin-left: auto; margin-right: auto;
+    }
+    .cta-block a {
+      display: inline-block; padding: 14px 32px; background: var(--ink); color: var(--cream);
+      font-family: 'Instrument Sans', sans-serif; font-size: 14px; letter-spacing: 0.08em;
+      text-decoration: none; font-weight: 500; transition: background 0.2s ease;
+    }
+    .cta-block a:hover { background: var(--gold); }
+
+    .section-nav { padding: 60px 0 80px; border-top: 1px solid var(--hairline-soft); }
+    .section-nav-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .section-nav a {
+      text-decoration: none; color: inherit; padding: 24px 28px; border: 1px solid var(--hairline);
+      background: var(--cream); transition: border-color 0.25s ease, background 0.25s ease;
+      flex: 1; min-width: 260px;
+    }
+    .section-nav a:hover { border-color: var(--gold); background: var(--paper); }
+    .section-nav .direction {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 10px;
+    }
+    .section-nav h3 { font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; }
+    .section-nav h3 em { font-style: italic; color: var(--gold); }
+
+    footer { padding: 56px 0 48px; text-align: center; border-top: 1px solid var(--hairline-soft); }
+    .footer-mark {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 22px; font-style: italic; color: var(--ink); margin-bottom: 16px;
+    }
+    .footer-text {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); line-height: 1.7;
+    }
+
+    ::selection { background: var(--gold); color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">Come and See</a>
+        <div class="nav-links">
+          <a href="index.html#differences">Differences</a>
+          <a href="come-and-see-stories.html">Stories</a>
+          <a href="come-and-see-resources.html">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <span class="section-marker">Resources</span>
+        <h1>Books, podcasts, <em>first sources.</em></h1>
+        <p class="hero-sub">A curated, not exhaustive, reading list for anyone who wants to dig deeper. Grouped by what it is and who it's best for, with a note at the top on what to read first.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <p class="lede">If you read nothing else on this list, read the Gospel of John. We mean that. Nothing replaces it. The rest of what follows is useful, and some of it is excellent, but the Gospel of John is the one book that has to come first.</p>
+
+        <div class="note-box">
+          <p class="note-label">A note on what is here</p>
+          <p>We have tried to include resources from a range of voices. Some are written by former Latter-day Saints who have come to biblical Christianity and want to help others on the same path. Some are primary-source historical documents, including the Church's own publications. A few are secular or academic and are included because they are careful with the record. We do not endorse every claim or posture in every resource, but each one is here because it is serious, well-sourced, and treats members of the Church with respect.</p>
+          <p>Where you should <strong>start</strong> depends on where you are. If you are feeling the shelf shake, read Lynn Wilder first. If you are ready for a careful comparison of what the Church and historic Christianity each teach, read McKeever and Johnson's <em>Mormonism 101</em>. If you want primary sources, read the Gospel Topics essays on the Church's own website and the Joseph Smith Papers.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">Books</span>
+        <h2>Personal testimonies and careful scholarship.</h2>
+
+        <div class="resource-group">
+          <div class="resource">
+            <p class="resource-meta">Start here | Comprehensive reference | In print</p>
+            <h3><em>Mormonism 101</em></h3>
+            <p class="byline">Bill McKeever and Eric Johnson, Baker Books, 2015 (revised edition)</p>
+            <p>Co-authored by the founder of Mormonism Research Ministry, this is a careful, gentle, thorough handbook on the doctrinal differences between historic Christianity and the LDS Church. Written for Christians who want to understand what their Latter-day Saint friends actually believe, and for members curious about what is outside their tradition. Accessible, well-sourced, and respectful throughout.</p>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Practical | For members and for friends of members</p>
+            <h3><em>Introducing Christianity to Mormons</em></h3>
+            <p class="byline">Bill McKeever and Eric Johnson, Harvest House, 2022</p>
+            <p>The companion volume to Mormonism 101. Where 101 explains what Mormonism teaches, this book focuses on what Christianity teaches, framed for a Latter-day Saint reader. If you are a member who has grown curious about what Christians actually believe, this book is specifically written for you.</p>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Memoir | Former BYU professor | Active ministry</p>
+            <h3><em>Unveiling Grace</em></h3>
+            <p class="byline">Lynn Wilder, Zondervan, 2013</p>
+            <p>Written by a tenured BYU professor whose entire family transitioned from deep LDS involvement to biblical Christianity. Careful, literate, and honest about how hard it was. Lynn and her husband Michael now run the ministry Ex-Mormon Christians United for Jesus. One of the best books ever written on what it is like to leave.</p>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Comprehensive | Theological comparison</p>
+            <h3><em>The Kingdom of the Cults</em></h3>
+            <p class="byline">Walter Martin, originally 1965, multiple updated editions</p>
+            <p>Long the standard evangelical reference work on theological differences between LDS teaching and historic Christianity. Older in places, occasionally polemic in tone, but encyclopedic in scope and useful as a starting reference. The Mormonism chapter is a good overview of the core doctrinal questions. Best used alongside the softer pastoral books, not in place of them.</p>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Historical scholarship | Secular biography</p>
+            <h3><em>No Man Knows My History</em></h3>
+            <p class="byline">Fawn Brodie, 1945 (revised 1971)</p>
+            <p>The classic scholarly biography of Joseph Smith, written by a BYU-raised historian who left the Church. Brodie is honest about both the charismatic genius of Joseph Smith and the troubling pattern of his prophetic claims. Not pastoral in tone, and dated in places, but the foundational academic treatment of the man.</p>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Historical scholarship | LDS scholar, critical</p>
+            <h3><em>Mormon Hierarchy series</em></h3>
+            <p class="byline">D. Michael Quinn, Signature Books, 1994 to 2002</p>
+            <p>Three volumes of scholarly history by one of the most respected LDS historians of his generation, drawing on archival research. Quinn was later excommunicated by the Church for refusing to stop publishing. The series is dense but invaluable for understanding the internal history the correlated materials tend to leave out.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">Primary sources</span>
+        <h2>Read the record for yourself.</h2>
+
+        <div class="resource-group">
+          <div class="resource">
+            <p class="resource-meta">Official | The Church's own scholarship</p>
+            <h3>The Joseph Smith Papers Project</h3>
+            <p class="byline">Published by the Church Historian's Press</p>
+            <p>An ongoing documentary editing project that is publishing every known document written by or to Joseph Smith, including journals, letters, revelations, and discourses. Primary sources, transcribed, annotated, and freely available online. This is the Church's own scholarship. If you want to know what the Prophet actually said and wrote, start here.</p>
+            <a class="resource-link" href="https://www.josephsmithpapers.org/" target="_blank">josephsmithpapers.org →</a>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Official | Church transparency initiative</p>
+            <h3>Gospel Topics Essays</h3>
+            <p class="byline">Published on ChurchofJesusChrist.org, 2013 to 2015</p>
+            <p>Thirteen essays commissioned under the direction of the Brethren to address specific historical questions the Church had previously handled less openly: the Book of Abraham translation, polygamy in Nauvoo and Kirtland, race and the priesthood, the First Vision accounts, the nature of God, the Mountain Meadows Massacre, and others. Cited throughout this site. The essays are short, carefully written, and worth reading in full.</p>
+            <a class="resource-link" href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays" target="_blank">churchofjesuschrist.org/gospel-topics-essays →</a>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Academic | Scholarly journal on Mormon thought</p>
+            <h3><em>Dialogue: A Journal of Mormon Thought</em></h3>
+            <p class="byline">Independent scholarly quarterly since 1966</p>
+            <p>Independent journal where faithful and questioning LDS scholars have worked through difficult questions for over half a century. Not hostile to the Church. Not controlled by the Church. Back issues include some of the most careful writing on the Masonic connections to the temple endowment, the polygamy question, the historicity of the Book of Mormon, and more.</p>
+            <a class="resource-link" href="https://www.dialoguejournal.com/" target="_blank">dialoguejournal.com →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">Podcasts &amp; video</span>
+        <h2>Hear it in the voice of someone who has been there.</h2>
+
+        <div class="resource-group">
+          <div class="resource">
+            <p class="resource-meta">Podcast | Pastoral | Former LDS</p>
+            <h3>Faith After Mormonism</h3>
+            <p class="byline">Hosted by Bryan Hall</p>
+            <p>A pastoral podcast focused specifically on the transition from LDS membership to biblical Christianity. Interviews with former members, conversations about specific doctrinal questions, and an overall tone of care for people in the middle of a faith transition. One of the warmest resources in this space.</p>
+            <a class="resource-link" href="https://faithaftermormonism.org/" target="_blank">faithaftermormonism.org →</a>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Ministry | Since 1979 | Daily radio program</p>
+            <h3>Mormonism Research Ministry</h3>
+            <p class="byline">Bill McKeever and Eric Johnson, Draper, Utah</p>
+            <p>Founded in 1979 by Bill McKeever, MRM has been quietly producing careful, well-sourced content for more than four decades. Their daily radio program <em>Viewpoint on Mormonism</em> has aired since 2011, with over three thousand episodes archived on their site. Their blog <em>Mormonism in the News</em>, written by Sharon Lindbloom, tracks current events inside the Church with calm, clear analysis. MRM operates the Utah Christian Research Center in Draper, which is open to visitors four days a week.</p>
+            <a class="resource-link" href="https://mrm.org/" target="_blank">mrm.org →</a>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Ministry | Former BYU faculty | Active</p>
+            <h3>Ex-Mormon Christians United for Jesus</h3>
+            <p class="byline">Michael and Lynn Wilder, founders</p>
+            <p>Founded by Mike and Lynn Wilder, who joined the LDS Church in 1977 and came out to biblical Christianity after thirty years, ECUJ produces teaching videos, testimony material, and resources for Christians who want to understand and love Latter-day Saints well. Also publishes at unveilingmormonism.com. A warm, pastoral ministry that treats the Saints with love.</p>
+            <a class="resource-link" href="https://www.unveilingmormonism.com/" target="_blank">unveilingmormonism.com →</a>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Ministry | Long-term primary-source research</p>
+            <h3>Utah Lighthouse Ministry</h3>
+            <p class="byline">Sandra Tanner, Salt Lake City</p>
+            <p>Founded in 1983 by Jerald and Sandra Tanner (Sandra is the great-great-granddaughter of Brigham Young). The Tanners spent decades publishing primary-source documents from Church history, always carefully cited and always calm in tone. Much of the evidence now acknowledged in the Gospel Topics essays was first put into wide circulation by their work.</p>
+            <a class="resource-link" href="http://www.utlm.org/" target="_blank">utlm.org →</a>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Podcast | General ex-Mormon, secular-leaning</p>
+            <h3>Mormon Stories</h3>
+            <p class="byline">John Dehlin</p>
+            <p>A more general-audience podcast covering the full range of experiences of people leaving the Church, including many who leave for reasons other than biblical Christianity. Useful for the breadth of testimony and the depth of historical interviews. Note that the host is not a Christian, so the reasons people give for leaving are not always the reasons we would emphasize. Read with discernment, as with any resource.</p>
+            <a class="resource-link" href="https://www.mormonstories.org/" target="_blank">mormonstories.org →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">For the Bible itself</span>
+        <h2>When you are ready for a whole Bible, here is how to start.</h2>
+
+        <div class="resource-group">
+          <div class="resource">
+            <p class="resource-meta">Translation | Readable, faithful to the Greek and Hebrew</p>
+            <h3>The ESV Study Bible or the CSB</h3>
+            <p class="byline">English Standard Version or Christian Standard Bible</p>
+            <p>You already have the King James Version, and it is a fine translation in the hands of a reader willing to work with 400-year-old English. If you want a translation that is easier to read while still being careful with the original languages, the ESV and the CSB are both good choices. A study Bible with footnotes and cross-references can help when a passage is confusing. You are not betraying anyone by reading a different translation.</p>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Devotional | For anyone trying to meet Jesus</p>
+            <h3><em>Mere Christianity</em></h3>
+            <p class="byline">C. S. Lewis, 1952</p>
+            <p>The most widely read introduction to mere historic Christianity in English. Lewis was a literature professor at Oxford who came to faith late in life and wrote about it with unusual clarity. Good for someone who wants to understand what Christians outside the Latter-day Saint tradition actually believe, explained by a careful thinker.</p>
+          </div>
+
+          <div class="resource">
+            <p class="resource-meta">Devotional | Pastoral on the cross and resurrection</p>
+            <h3><em>The Cross of Christ</em></h3>
+            <p class="byline">John Stott, InterVarsity Press, 1986</p>
+            <p>A deep but accessible book on what the Savior accomplished at the cross. Stott writes like a pastor, with care for the reader, and with the whole Bible in view. If you want to understand what grace means in the biblical sense, as Paul describes it, this is a good companion.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <div class="cta-block">
+          <h3>Still just one place to <em>start.</em></h3>
+          <p>All of this can wait. The Gospel of John cannot. A seven-day guided reading plan, with no commentary and no manual. Just the Savior in His own words.</p>
+          <a href="come-and-see-john.html">Start with Jesus</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-nav">
+      <div class="container-wide">
+        <div class="section-nav-inner">
+          <a href="come-and-see-stories.html">
+            <div class="direction">← Previous</div>
+            <h3><em>Stories</em></h3>
+          </a>
+          <a href="index.html">
+            <div class="direction">Home</div>
+            <h3>Back to the <em>landing</em></h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-mark">Come and See</p>
+      <p class="footer-text">
+        A pastoral resource from The Chalet Retreat Ministries<br>
+        Roan Mountain, Tennessee &nbsp;·&nbsp; hello@thechaletretreat.org
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>

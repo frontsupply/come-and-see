@@ -1,0 +1,50 @@
+#!/bin/sh
+# Come and See, pre-commit hook
+# Enforces the no em dash / no en dash rule on all staged files.
+
+# Unicode codepoints:
+#   U+2014 EM DASH
+#   U+2013 EN DASH
+
+# Use Python for reliable Unicode detection (works on macOS and Linux).
+python3 - "$@" <<'PY_EOF'
+import sys
+import subprocess
+
+# Get the list of staged files, text only
+result = subprocess.run(
+    ["git", "diff", "--cached", "--name-only", "--diff-filter=ACM"],
+    capture_output=True, text=True
+)
+files = [f for f in result.stdout.strip().split("\n") if f]
+
+bad = []
+for f in files:
+    try:
+        with open(f, "r", encoding="utf-8") as fh:
+            content = fh.read()
+    except (UnicodeDecodeError, FileNotFoundError, IsADirectoryError):
+        # Skip binaries and deleted files
+        continue
+
+    for lineno, line in enumerate(content.split("\n"), 1):
+        for char, name in [("\u2014", "EM DASH U+2014"), ("\u2013", "EN DASH U+2013")]:
+            if char in line:
+                col = line.index(char) + 1
+                bad.append((f, lineno, col, name, line.strip()[:80]))
+
+if bad:
+    print("")
+    print("Commit blocked: em dashes or en dashes found in staged files.")
+    print("Project rule: use commas, periods, colons, semicolons, parentheses,")
+    print("or split sentences instead. Never em or en dashes.")
+    print("")
+    for f, ln, col, name, preview in bad:
+        print(f"  {f}:{ln}:{col}  [{name}]")
+        print(f"    > {preview}")
+        print("")
+    print("Fix these and retry the commit, or use 'git commit --no-verify' to override.")
+    sys.exit(1)
+
+sys.exit(0)
+PY_EOF

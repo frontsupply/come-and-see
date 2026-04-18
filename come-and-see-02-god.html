@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Different God | Come and See</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT@0,9..144,300..800,0..100;1,9..144,300..800,0..100&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cream: #f7f2e7; --paper: #efe7d4; --ink: #1f1811; --ink-soft: #4a3f33;
+      --ink-mute: #776859; --gold: #8b6b2a; --gold-soft: #b08d47;
+      --teal: #2c5953; --teal-soft: #447a73; --hairline: #d9cbb0; --hairline-soft: #e6dcc4;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--cream); color: var(--ink);
+      font-family: 'Newsreader', Georgia, serif; font-size: 19px; line-height: 1.7;
+      font-weight: 380; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0; pointer-events: none; z-index: 0;
+      background-image:
+        radial-gradient(circle at 20% 30%, rgba(139, 107, 42, 0.02) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(44, 89, 83, 0.02) 0%, transparent 50%);
+    }
+    main, nav, footer { position: relative; z-index: 1; }
+    h1, h2, h3 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+      font-weight: 400; letter-spacing: -0.02em; color: var(--ink);
+    }
+    .eyebrow {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; font-weight: 500;
+      text-transform: uppercase; letter-spacing: 0.18em; color: var(--gold);
+    }
+    .reference {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500;
+    }
+    .container { max-width: 740px; margin: 0 auto; padding: 0 28px; }
+    .container-wide { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+
+    nav { padding: 24px 0; border-bottom: 1px solid var(--hairline-soft); background: var(--cream); }
+    .nav-inner { display: flex; justify-content: space-between; align-items: center; }
+    .logo {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 20px; font-weight: 400; font-style: italic; color: var(--ink);
+      text-decoration: none; letter-spacing: -0.01em;
+    }
+    .nav-links { display: flex; gap: 32px; font-family: 'Instrument Sans', sans-serif; font-size: 14px; font-weight: 500; }
+    .nav-links a { color: var(--ink-soft); text-decoration: none; transition: color 0.2s ease; }
+    .nav-links a:hover { color: var(--gold); }
+    @media (max-width: 640px) { .nav-links { gap: 18px; font-size: 13px; } }
+
+    .hero { padding: 100px 0 80px; border-bottom: 1px solid var(--hairline-soft); }
+    .hero .section-marker {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px;
+      letter-spacing: 0.24em; text-transform: uppercase; color: var(--gold);
+      font-weight: 500; margin-bottom: 40px; display: block;
+    }
+    .hero h1 {
+      font-size: clamp(56px, 10vw, 104px); line-height: 0.95;
+      letter-spacing: -0.035em; margin-bottom: 36px;
+    }
+    .hero h1 em {
+      font-style: italic; color: var(--gold);
+      font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    .hero-sub {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 24px; line-height: 1.45; font-style: italic; color: var(--ink-soft); max-width: 600px;
+    }
+
+    section.content { padding: 80px 0; }
+    section.content + section.content { border-top: 1px solid var(--hairline-soft); }
+    section.content.paper { background: var(--paper); border-top: 1px solid var(--hairline); border-bottom: 1px solid var(--hairline); }
+
+    section.content h2 {
+      font-size: clamp(30px, 4.2vw, 40px); line-height: 1.15; margin-bottom: 32px; letter-spacing: -0.025em;
+    }
+    section.content h2 em {
+      font-style: italic; color: var(--gold); font-variation-settings: "opsz" 144, "SOFT" 80;
+    }
+    section.content .eyebrow { display: block; margin-bottom: 18px; }
+    section.content p { font-size: 19px; line-height: 1.75; color: var(--ink-soft); margin-bottom: 22px; }
+    section.content p:last-child { margin-bottom: 0; }
+    section.content p em { color: var(--ink); font-style: italic; }
+    section.content p strong { color: var(--ink); font-weight: 600; }
+
+    .receipt {
+      background: var(--cream); border: 1px solid var(--hairline);
+      padding: 36px 34px; margin: 32px 0;
+    }
+    .receipt .source {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 16px;
+    }
+    .receipt blockquote {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: 20px; line-height: 1.55; font-style: italic; color: var(--ink); margin-bottom: 14px;
+    }
+    .receipt cite {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); font-style: normal;
+    }
+
+    .scripture-feature {
+      text-align: center; margin: 48px 0; padding: 40px 0;
+      border-top: 1px solid var(--gold); border-bottom: 1px solid var(--gold);
+    }
+    .scripture-feature p {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 72, "SOFT" 50;
+      font-size: clamp(22px, 3vw, 28px); line-height: 1.45; font-style: italic;
+      color: var(--ink); max-width: 680px; margin: 0 auto 20px; text-align: center;
+    }
+    .scripture-feature .reference { display: block; text-align: center; }
+
+    .section-nav { padding: 60px 0 80px; border-top: 1px solid var(--hairline-soft); }
+    .section-nav-inner { display: flex; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .section-nav a {
+      text-decoration: none; color: inherit; padding: 24px 28px; border: 1px solid var(--hairline);
+      background: var(--cream); transition: border-color 0.25s ease, background 0.25s ease;
+      flex: 1; min-width: 260px;
+    }
+    .section-nav a:hover { border-color: var(--gold); background: var(--paper); }
+    .section-nav .direction {
+      font-family: 'Instrument Sans', sans-serif; font-size: 12px; letter-spacing: 0.16em;
+      text-transform: uppercase; color: var(--ink-mute); font-weight: 500; margin-bottom: 10px;
+    }
+    .section-nav h3 { font-size: 22px; line-height: 1.2; letter-spacing: -0.02em; }
+    .section-nav h3 em { font-style: italic; color: var(--gold); }
+
+    footer { padding: 56px 0 48px; text-align: center; border-top: 1px solid var(--hairline-soft); }
+    .footer-mark {
+      font-family: 'Fraunces', Georgia, serif; font-variation-settings: "opsz" 144, "SOFT" 50;
+      font-size: 22px; font-style: italic; color: var(--ink); margin-bottom: 16px;
+    }
+    .footer-text {
+      font-family: 'Instrument Sans', sans-serif; font-size: 13px; letter-spacing: 0.06em;
+      color: var(--ink-mute); line-height: 1.7;
+    }
+
+    ::selection { background: var(--gold); color: var(--cream); }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container-wide">
+      <div class="nav-inner">
+        <a href="index.html" class="logo">Come and See</a>
+        <div class="nav-links">
+          <a href="index.html#differences">Differences</a>
+          <a href="index.html#stories">Stories</a>
+          <a href="index.html#resources">Resources</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <span class="section-marker">02 / Six Differences</span>
+        <h1>A Different <em>God.</em></h1>
+        <p class="hero-sub">Heavenly Father was once a man on another world, who lived a mortal life, died, was resurrected, and progressed to godhood. Someday, the fully exalted may do the same. The God of the Bible says the exact opposite, in His own voice, through the prophet Isaiah.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">What the Church teaches</span>
+        <h2>The couplet is not a throwaway line.</h2>
+        <p>You have heard Lorenzo Snow's couplet since you were small. <em>As man now is, God once was; as God now is, man may be.</em> In a Sunday School lesson it may be quoted gently, as a hopeful statement about divine potential. In the structure of the Plan of Salvation, it is something more. It is the axis on which the whole thing turns.</p>
+        <p>Heavenly Father, in LDS teaching, is an exalted man. He has a body of flesh and bones as tangible as our own. He lived a mortal life on another world, died, was resurrected, and by obedience to the laws and ordinances of the gospel progressed into godhood. He was not always God. He became God. And the promise of exaltation, for those who receive all the ordinances and endure faithfully to the end, is that we may become gods as well, heads of our own worlds, continuing the pattern eternally.</p>
+        <p>This is not fringe teaching. It is the doctrine of eternal progression. It was taught openly by Joseph Smith in the King Follett Discourse in April of 1844, two months before his death. It was written into the Doctrine and Covenants by revelation. It is the reason temple sealing matters the way it matters, and the reason worthiness is the word the whole system turns on.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The receipts</span>
+        <h2>From the Prophet, from the scripture, from the manual.</h2>
+
+        <div class="receipt">
+          <p class="source">The King Follett Discourse, April 7, 1844</p>
+          <blockquote>"God himself was once as we are now, and is an exalted man, and sits enthroned in yonder heavens. That is the great secret. If the veil were rent today… you would see him like a man in form."</blockquote>
+          <cite>Joseph Smith, Teachings of the Prophet Joseph Smith, p. 345.</cite>
+        </div>
+
+        <div class="receipt">
+          <p class="source">The Lorenzo Snow Couplet</p>
+          <blockquote>"As man now is, God once was; as God now is, man may be."</blockquote>
+          <cite>Lorenzo Snow, fifth President of the Church, reaffirmed as Church doctrine in General Conference.</cite>
+        </div>
+
+        <div class="receipt">
+          <p class="source">Doctrine and Covenants 130:22</p>
+          <blockquote>"The Father has a body of flesh and bones as tangible as man's; the Son also; but the Holy Ghost has not a body of flesh and bones, but is a personage of Spirit."</blockquote>
+          <cite>Doctrine and Covenants, Section 130, received by Joseph Smith, 1843.</cite>
+        </div>
+
+        <p>This is not a caricature. It is the doctrine as the Church has taught it, from its Prophet, from its scripture, and from its manuals. Heavenly Father is an exalted man. He has a body. He was not always God. And what He is, we may become.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">The Bible</span>
+        <h2>The God of Israel says, in His own voice, that this cannot be.</h2>
+        <p>There is no passage in the Bible where God describes Himself as an exalted man. There is no passage where He says He was once mortal, or that He progressed. There is no passage where He points to other gods beside Him as fellow beings of His kind. What there is, repeatedly and emphatically, is the exact opposite. God Himself, speaking through the prophets, denies it.</p>
+
+        <div class="scripture-feature">
+          <p>"Before me no god was formed, nor shall there be any after me."</p>
+          <span class="reference">Isaiah 43:10</span>
+        </div>
+
+        <p>This is not a verse that can be softened. The Lord is not saying that He is the most important god, or the head god of a pantheon. He is saying that no other god was ever formed before Him, and that none ever will be formed after Him. If Heavenly Father was once a man on another world who became God, then Isaiah 43 is false. Both cannot be true.</p>
+
+        <div class="scripture-feature">
+          <p>"I am the first and I am the last; besides me there is no god."</p>
+          <span class="reference">Isaiah 44:6</span>
+        </div>
+
+        <p>And again, a few chapters later, the Lord forecloses the possibility that anyone else is in His category at all.</p>
+
+        <div class="scripture-feature">
+          <p>"I am God, and there is no other; I am God, and there is none like me."</p>
+          <span class="reference">Isaiah 46:9</span>
+        </div>
+
+        <p>When Moses asked for God's name at the burning bush, the answer was not "I am one of many" or "I am the firstborn." The answer was <em>I AM</em>. Self-existent. Without beginning. Without peer. The declaration of Israel, which Jesus Himself called the greatest commandment, is <em>Hear, O Israel: the LORD our God, the LORD is one</em> (Deuteronomy 6:4). One. Not the first among gods. One.</p>
+        <p>The Bible does say, in a single and widely misused passage, that God called certain corrupt Israelite judges "gods" (Psalm 82), and Jesus quotes it in John 10. But the context of Psalm 82 is God's judgment against those so-called gods <em>because they die like men and fall like any prince</em>. It is not a promise of exaltation. It is a mockery of pretenders to divine status. The Bible's consistent witness, from Genesis to Revelation, is that there is one God and there has never been and never will be another.</p>
+      </div>
+    </section>
+
+    <section class="content paper">
+      <div class="container">
+        <span class="eyebrow">The difference</span>
+        <h2>This is not a minor variation in theology.</h2>
+        <p>Either Heavenly Father was once a man, or Isaiah 43 is true. Not both. Either the Plan of Salvation ends in us becoming gods ourselves, with our own worlds and our own spirit children, or Isaiah 44 is true. Not both. The couplet and the Shema cannot both be right.</p>
+        <p>If you are a member, this is the moment where the stakes become clear. The Lorenzo Snow couplet is not a piece of quaint Utah folklore that the Church has quietly moved past. It is load-bearing. Remove it and the Plan collapses. Keep it and Isaiah's God is someone other than Heavenly Father.</p>
+      </div>
+    </section>
+
+    <section class="content">
+      <div class="container">
+        <span class="eyebrow">A word to the one reading</span>
+        <h2>The Father you are looking for is not the one you were taught about.</h2>
+        <p>We know this is hard. The image of a Father with a body, an arm you could grasp, a face you could see, has been a source of comfort in prayer and in the temple. The idea that we could someday be like Him has been offered to you as the whole point of the gospel.</p>
+        <p>But the God of the Bible is not less than a Father because He is spirit. He is more. He is not bound to a single world, a single body, a single time. He is not one God among others. He is <em>the</em> God, the only God, and He calls you by name not because you share His nature but because He loves what He made.</p>
+        <p>The God of Isaiah is also the God of Jesus, who taught His disciples to pray <em>Our Father, who art in heaven</em>. That Father is not an exalted man. He is the one who was already God before there was a heaven for Him to be in. And the invitation of the gospel is not that we should become what He is. It is that we should be reconciled to Him, by grace, through His Son.</p>
+        <p>Come and see.</p>
+      </div>
+    </section>
+
+    <section class="section-nav">
+      <div class="container-wide">
+        <div class="section-nav-inner">
+          <a href="come-and-see-01-savior.html">
+            <div class="direction">← Previous</div>
+            <h3>01 / A Different <em>Savior</em></h3>
+          </a>
+          <a href="come-and-see-03-gospel.html">
+            <div class="direction">Next →</div>
+            <h3>03 / A Different <em>Gospel</em></h3>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-mark">Come and See</p>
+      <p class="footer-text">
+        A pastoral resource from The Chalet Retreat Ministries<br>
+        Roan Mountain, Tennessee &nbsp;·&nbsp; hello@thechaletretreat.org
+      </p>
+    </div>
+  </footer>
+
+</body>
+</html>
