@@ -22,9 +22,40 @@ The current deliverables are HTML/CSS prototypes that need to be ported to Next.
 
 ### Theological framing
 
-The content is framed biblical unitarian, but it works for trinitarian readers too. The argument deliberately rests on premises both traditions share (strict monotheism from Isaiah, Christ as the unique Son from John 3:16, grace apart from works from Ephesians 2:8-9). Do not drift into trinitarian Christology (eternal generation, begotten-not-made, Nicene formulations). If you find yourself reaching for creedal language to make an argument work, pause and rework it from Scripture instead.
+This site is written from an **explicitly biblical unitarian / restorationist** position. The argument is that the one God is the Father (per Deut 6:4, 1 Cor 8:6, John 17:3, Eph 4:6, and many others), and Jesus is His appointed Son and Messiah, raised from the dead and given all authority. This is not a trinitarian site, and resources on this site should never route readers into trinitarian discipleship as a replacement for LDS membership.
 
-When describing Jesus as "the unique Son," lean on *monogenēs* (John 3:16) and Jesus as appointed Messiah, not eternal-generation language. This reads correctly to both trinitarian and biblical unitarian audiences.
+The argument against LDS Christology proceeds from strict biblical monotheism (Shema, Isaiah 43:10, Isaiah 44:6, Isaiah 46:9), from Jesus as the unique Son via *monogenēs* (John 3:16), and from grace apart from works (Ephesians 2:8-9). These premises are shared across biblical unitarian and trinitarian readers, which means the doctrinal sub-pages can be read profitably by both audiences. But the overall site, Stories page, Resources page, and pastoral closings must not recommend fellowships, books, or ministries that add the fourth-century creedal formulations on top of the Bible.
+
+**Do NOT add back** any of the following, which were removed during a theological audit:
+
+- Walter Martin, *Kingdom of the Cults* (trinitarian apologetics)
+- John Stott, *The Cross of Christ* (Reformed trinitarian)
+- C. S. Lewis, *Mere Christianity* (classical trinitarian)
+- ESV, CSB, or NIV study Bible recommendations (all trinitarian translation committees)
+- Bill McKeever / Eric Johnson / Mormonism Research Ministry (trinitarian evangelical)
+- Lynn Wilder's *Unveiling Grace* or ECUJ ministry (trinitarian evangelical)
+- Faith After Mormonism podcast (trinitarian)
+- Adam's Road Ministry and Micah Wilder's *Passport to Heaven* (removed additionally due to 2024 moral failure, see below)
+- Any Athanasius / Nicene Creed / "creedal orthodoxy" defenses
+- Language like "Jesus is God," "God the Son," "eternal generation," "pre-existent Christ as Creator," "Yahweh is Jesus"
+- Routing pastoral language like "find a faithful Baptist / Orthodox / evangelical church near you"
+
+**Do use** these sources and ministries:
+
+- Anthony Buzzard and Restoration Fellowship (restorationfellowship.org)
+- Sean Finnegan and Restitutio podcast (restitutio.org)
+- J. Dan Gill and 21st Century Reformation (21stcr.org)
+- Spirit and Truth Fellowship International (stfonline.org), including the REV Bible translation
+- Living Hope International Ministries (livinghopeiminc.com)
+- Focus on the Kingdom (focusonthekingdom.org)
+- Church of God General Conference (coggc.org), Mickey is on their North American Missions board
+- Atlanta Bible College (the COGGC seminary)
+- Joseph Smith Papers Project and the Church's own Gospel Topics Essays (primary sources on LDS history, doctrinally neutral for us)
+- Utah Lighthouse Ministry / Sandra Tanner (historical research only, her framework is evangelical trinitarian, use for primary-source research not for discipleship)
+
+When describing Jesus in site copy, lean on *monogenēs* (John 3:16) as "unique / one of a kind," Hebrews 1:5 ("today I have begotten you") as the begetting, and Jesus as Messiah and appointed Lord (Acts 2:36, Phil 2:9-11, Rev 5). Do not describe Jesus as pre-existent as God, as the second person of the Trinity, as Yahweh, or as the Creator of the cosmos. These are later creedal readings the apostles themselves did not preach.
+
+The Holy Spirit is consistently the Father's own power and presence (Luke 1:35, Acts 1:8, Romans 8), not a third divine person. Do not write about the Spirit as "He" in a personal-being sense; the Spirit is God's own Spirit, the Father's breath and power given to His people.
 
 ### Insider voice
 
@@ -245,14 +276,21 @@ The HTML prototypes use long filenames for local testing. For production, use cl
 
 ## What was pulled from earlier drafts and why
 
-Earlier versions of the Stories and Resources pages featured Micah Wilder's *Passport to Heaven* (Harvest House, 2021) and Adam's Road Ministry. Both were removed in 2024:
+### Theological audit (April 2026)
+
+An earlier draft of the Stories and Resources pages pointed readers to trinitarian evangelical authors and ministries. After a full theological audit, those were removed. The site is now consistent with its biblical unitarian / restorationist theological foundation (see the Theological framing section above for the full list of what was pulled and what replaced it).
+
+The short version: the site had been recommending Walter Martin, John Stott, C. S. Lewis, trinitarian study Bibles, Mormonism Research Ministry, and Lynn Wilder's Ex-Mormon Christians United for Jesus. These authors have met Jesus, but they have also added creedal formulations on top of Scripture that go beyond what the apostles themselves preached. Routing ex-LDS readers into that framework would be trading one unbiblical system for another. The site now points exclusively to sources that hold to the one God (the Father) and Jesus as His appointed Son, from Scripture alone.
+
+### Adam's Road / Micah Wilder (separate issue, also removed)
+
+An even earlier draft featured Micah Wilder's *Passport to Heaven* (Harvest House, 2021) and Adam's Road Ministry. Both were removed in 2024 for reasons unrelated to theology:
 
 - Harvest House pulled *Passport to Heaven* from sale and destroyed remaining copies after revelations of sexual immorality by Wilder during the period the book covers.
-- Adam's Road Ministry dissolved in 2024 after a decade of polyamorous arrangements among band members, confirmed by multiple allied ministries (Mormonism Research Ministry, Main Street Church, Utah Lighthouse Ministry).
-- Lynn and Michael Wilder (Micah's parents) are explicitly cleared in all public statements. Their ministry Ex-Mormon Christians United for Jesus (ECUJ) continues cleanly.
-- Matt Wilder (Micah's brother) is also cleared. His Hands and Feet Piano Ministry continues.
+- Adam's Road Ministry dissolved in 2024 after a decade of polyamorous arrangements among band members, confirmed by multiple allied ministries.
+- Lynn and Michael Wilder (Micah's parents) were explicitly cleared in all public statements. However, their ministry ECUJ is trinitarian evangelical and was also removed during the April 2026 theological audit (above).
 
-If Claude Code or a future editor is tempted to add Micah Wilder or Adam's Road back into the Stories or Resources pages, do not. The site now anchors on Mormonism Research Ministry (Bill McKeever and Eric Johnson), ECUJ (Lynn and Mike Wilder), Sandra Tanner / Utah Lighthouse Ministry, and the Faith After Mormonism podcast, all of which are on solid ground.
+If Claude Code or a future editor is tempted to add any of the removed authors or ministries back, do not. Check the "Do NOT add back" list in the Theological framing section.
 
 ---
 

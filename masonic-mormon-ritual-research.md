@@ -178,9 +178,12 @@ From a biblical unitarian and restorationist perspective, several concerns emerg
 - Matthew B. Brown, *Exploring the Connection Between Mormons and Masons* (Covenant Communications, 2009).
 - Greg Kearney, "The Message and the Messenger: Latter-day Saints and Freemasonry," various FAIR Mormon presentations.
 
-**Pastoral / apologetic resources for ministering to former LDS:**
-- Lynn Wilder, *Unveiling Grace* (Zondervan), testimony of BYU faculty family leaving LDS after temple experience. Lynn and Michael Wilder co-lead Ex-Mormon Christians United for Jesus.
-- Bill McKeever and Eric Johnson, *Mormonism 101* (Baker, 2015, revised edition), careful reference handbook comparing LDS teaching with historic Christianity. See also mrm.org for their ongoing ministry since 1979.
+**Pastoral / apologetic resources for ministering to former LDS (biblical unitarian):**
+- Anthony Buzzard, *Jesus Was Not a Trinitarian* (Restoration Fellowship, 2007), for foundational biblical unitarian Christology useful when helping someone reassess what they were taught about God and Christ.
+- Sean Finnegan, Restitutio podcast (restitutio.org), multiple episodes specifically on the identity of Jesus, the nature of God, and the gospel of the kingdom.
+- 21st Century Reformation (21stcr.org), teaching ministry with accessible biblical unitarian resources on the Father, the Son, and the gospel.
+- Spirit and Truth Fellowship International (stfonline.org), including the REV Bible translation, which is translated without trinitarian assumptions.
+- Church of God General Conference (coggc.org), fellowship of biblical unitarian churches. A possible home fellowship for someone coming out of the LDS Church.
 
 ---
 
